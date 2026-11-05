@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { image: "images/5.jpg", caption: "Random paper flower." },
         { image: "images/6.jpg", caption: "The gift is on my back :)." },
         { image: "images/7.jpg", caption: "First cine date." },
+        { image: "images/12.jpg", caption: "Debut of my pretty Princess." },
         { image: "images/8.jpg", caption: "Flowers for my hardworking Queen." },
         { image: "images/9.jpg", caption: "Picnic, sunshine, and a beautiful date." },
         { image: "images/10.jpg", caption: "Date I'll never forget." },
