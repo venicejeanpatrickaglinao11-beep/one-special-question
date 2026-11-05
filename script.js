@@ -439,7 +439,7 @@ function previousMemory() {
         memoryIndex--;
 
         updateMemory();
-
+ createParticles(5);
     }
 
 }
