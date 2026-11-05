@@ -1401,6 +1401,72 @@ h2 {
 
 }
 
+/* =====================================
+   MATCHING MEMORY NAVIGATION BUTTONS
+===================================== */
+
+.memory-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.memory-navigation .back-memory-button,
+.memory-navigation .main-button {
+    min-width: 175px;
+    min-height: 48px;
+    margin: 0;
+    padding: 15px 25px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--wine);
+    color: var(--cream);
+
+    border: 1px solid var(--wine);
+    border-radius: 2px;
+
+    font-family: var(--body);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    box-shadow: 0 8px 22px rgba(74,47,51,.15);
+
+    transition: all .35s var(--ease);
+}
+
+.memory-navigation .back-memory-button:hover,
+.memory-navigation .main-button:hover {
+    background: transparent;
+    color: var(--wine);
+    transform: translateY(-3px);
+}
+
+.memory-navigation .back-memory-button:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (max-width: 480px) {
+    .memory-navigation {
+        gap: 10px;
+    }
+
+    .memory-navigation button {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+
 
 /* =========================================
    END OF JUNJUN'S LOVE LETTER CSS
