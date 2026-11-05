@@ -1,19 +1,26 @@
 
-// ======================================
-// JUNJUN'S LITTLE FAIRYTALE
-// COMPLETE JAVASCRIPT
-// ======================================
+/* =========================================
+   JUNJUN'S LITTLE FAIRYTALE
+   COMPLETE FIXED JAVASCRIPT
+========================================= */
 
 
-// PAGE NAVIGATION
+/* =========================================
+   PAGE NAVIGATION
+========================================= */
 
 function goToPage(number) {
+
+    const selectedPage = document.getElementById("page" + number);
+
+    if (!selectedPage) {
+        console.error("Page not found: page" + number);
+        return;
+    }
 
     document.querySelectorAll(".page").forEach(page => {
         page.classList.remove("active");
     });
-
-    const selectedPage = document.getElementById("page" + number);
 
     selectedPage.classList.add("active");
 
@@ -25,35 +32,43 @@ function goToPage(number) {
 }
 
 
-// ======================================
-// BACKGROUND SLIDESHOW
-// ======================================
+/* =========================================
+   BACKGROUND SLIDESHOW
+========================================= */
 
 const backgrounds = document.querySelectorAll(".bg");
 
 let backgroundIndex = 0;
 
-setInterval(() => {
+if (backgrounds.length > 1) {
 
-    backgrounds[backgroundIndex].classList.remove("active");
+    setInterval(() => {
 
-    backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+        backgrounds[backgroundIndex].classList.remove("active");
 
-    backgrounds[backgroundIndex].classList.add("active");
+        backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
 
-}, 5000);
+        backgrounds[backgroundIndex].classList.add("active");
+
+    }, 5000);
+
+}
 
 
-// ======================================
-// MUSIC PLAYER
-// ======================================
+/* =========================================
+   MUSIC PLAYER
+========================================= */
 
 const music = document.getElementById("backgroundMusic");
+
 const musicButton = document.getElementById("musicButton");
 
 let musicPlaying = false;
 
+
 async function toggleMusic() {
+
+    if (!music || !musicButton) return;
 
     if (musicPlaying) {
 
@@ -77,7 +92,7 @@ async function toggleMusic() {
 
             musicButton.innerHTML = "Tap to Play ♫";
 
-            console.log("Music could not play:", error);
+            console.error("Music error:", error);
 
         }
 
@@ -88,30 +103,30 @@ async function toggleMusic() {
 
 async function startMusic() {
 
-    if (!musicPlaying) {
+    if (!music || musicPlaying) return;
 
-        try {
+    try {
 
-            await music.play();
+        await music.play();
 
-            musicPlaying = true;
+        musicPlaying = true;
 
-            musicButton.innerHTML = "♫ Music On";
+        musicButton.innerHTML = "♫ Music On";
 
-        } catch (error) {
+    } catch (error) {
 
-            musicButton.innerHTML = "♫ Music Off";
+        musicButton.innerHTML = "♫ Music Off";
 
-        }
+        console.log("Music requires user interaction.");
 
     }
 
 }
 
 
-// ======================================
-// ENTRANCE
-// ======================================
+/* =========================================
+   ENTRANCE
+========================================= */
 
 function enterFairytale() {
 
@@ -121,32 +136,39 @@ function enterFairytale() {
 
     const butterfly = document.getElementById("deliveryButterfly");
 
-    butterfly.classList.remove("fly-in");
+    if (butterfly) {
 
-    void butterfly.offsetWidth;
+        butterfly.classList.remove("fly-in");
 
-    butterfly.classList.add("fly-in");
+        void butterfly.offsetWidth;
+
+        butterfly.classList.add("fly-in");
+
+    }
 
     createParticles(12);
 
 }
 
 
-// ======================================
-// ENVELOPE ANIMATION
-// ======================================
+/* =========================================
+   ENVELOPE ANIMATION
+========================================= */
 
 let envelopeOpened = false;
+
 
 function openEnvelope() {
 
     if (envelopeOpened) return;
 
-    envelopeOpened = true;
-
     const envelope = document.getElementById("envelope");
 
     const button = document.getElementById("openButton");
+
+    if (!envelope || !button) return;
+
+    envelopeOpened = true;
 
     envelope.classList.add("open");
 
@@ -171,13 +193,15 @@ function openEnvelope() {
 }
 
 
-// ======================================
-// BUTTERFLIES ESCAPING
-// ======================================
+/* =========================================
+   BUTTERFLIES ESCAPING
+========================================= */
 
 function butterflyEscape() {
 
     const container = document.getElementById("particleContainer");
+
+    if (!container) return;
 
     for (let i = 0; i < 12; i++) {
 
@@ -191,7 +215,8 @@ function butterflyEscape() {
 
         butterfly.style.bottom = "35%";
 
-        butterfly.style.fontSize = (18 + Math.random() * 22) + "px";
+        butterfly.style.fontSize =
+            (18 + Math.random() * 22) + "px";
 
         container.appendChild(butterfly);
 
@@ -226,13 +251,17 @@ function butterflyEscape() {
 }
 
 
-// ======================================
-// NOT YET
-// ======================================
+/* =========================================
+   NOT YET BUTTON
+========================================= */
 
 function sayNotYet() {
 
-    document.getElementById("answerMessage").innerText =
+    const message = document.getElementById("answerMessage");
+
+    if (!message) return;
+
+    message.innerText =
         "No pressure, Pretty. Take all the time you need. Your happiness matters to me. ♡";
 
     createParticles(8);
@@ -240,9 +269,9 @@ function sayNotYet() {
 }
 
 
-// ======================================
-// YES CELEBRATION
-// ======================================
+/* =========================================
+   YES CELEBRATION
+========================================= */
 
 function sayYes() {
 
@@ -259,13 +288,15 @@ function sayYes() {
 }
 
 
-// ======================================
-// FLOATING PARTICLES
-// ======================================
+/* =========================================
+   FLOATING PARTICLES
+========================================= */
 
 function createParticles(amount) {
 
     const container = document.getElementById("particleContainer");
+
+    if (!container) return;
 
     const symbols = ["💗", "♡", "🦋", "🌸", "✨"];
 
@@ -300,10 +331,9 @@ function createParticles(amount) {
 }
 
 
-// ======================================
-// MEMORY SLIDESHOW
-// ======================================
-
+/* =========================================
+   OUR MEMORIES
+========================================= */
 
 const memories = [
 
@@ -314,7 +344,7 @@ const memories = [
 
     {
         image: "images/2.jpg",
-        caption: "The first time I made you feel like a princess.♡"
+        caption: "The first time I made you feel like a princess. ♡"
     },
 
     {
@@ -324,7 +354,7 @@ const memories = [
 
     {
         image: "images/4.jpg",
-        caption: "A memory I wish I could relive(kissed)."
+        caption: "A memory I wish I could relive (kissed)."
     },
 
     {
@@ -349,7 +379,7 @@ const memories = [
 
     {
         image: "images/9.jpg",
-        caption: "Picnic, sunshine, and a pretty beautiful date."
+        caption: "Picnic, sunshine, and a beautiful date."
     },
 
     {
@@ -365,12 +395,12 @@ const memories = [
 ];
 
 
-];
-
 let memoryIndex = 0;
 
 
-// PRELOAD PHOTOS
+/* =========================================
+   PRELOAD PHOTOS
+========================================= */
 
 memories.forEach(memory => {
 
@@ -381,7 +411,9 @@ memories.forEach(memory => {
 });
 
 
-// START MEMORIES
+/* =========================================
+   START MEMORIES
+========================================= */
 
 function startMemories() {
 
@@ -396,7 +428,9 @@ function startMemories() {
 }
 
 
-// UPDATE PHOTO
+/* =========================================
+   UPDATE MEMORY
+========================================= */
 
 function updateMemory() {
 
@@ -406,29 +440,49 @@ function updateMemory() {
 
     const counter = document.getElementById("memoryCounter");
 
-    const previousButton = document.getElementById("prevMemoryButton");
+    const previousButton =
+        document.getElementById("backMemoryButton");
 
-    const nextButton = document.getElementById("nextMemoryButton");
+    const nextButton =
+        document.getElementById("nextMemoryButton");
+
+
+    if (!image || !caption || !counter ||
+        !previousButton || !nextButton) {
+
+        console.error("Memory HTML elements are missing!");
+
+        return;
+
+    }
+
+
+    const currentMemory = memories[memoryIndex];
+
 
     image.style.animation = "none";
 
     void image.offsetWidth;
 
+    image.src = currentMemory.image;
+
     image.style.animation = "photoEnter .8s ease";
 
-    image.src = memories[memoryIndex].image;
 
-    caption.innerText = memories[memoryIndex].caption;
+    caption.innerText = currentMemory.caption;
+
 
     counter.innerText =
         String(memoryIndex + 1).padStart(2, "0") +
         " / " +
         String(memories.length).padStart(2, "0");
 
+
     previousButton.disabled = memoryIndex === 0;
 
     previousButton.style.opacity =
         memoryIndex === 0 ? ".4" : "1";
+
 
     nextButton.innerHTML =
         memoryIndex === memories.length - 1
@@ -438,7 +492,9 @@ function updateMemory() {
 }
 
 
-// NEXT PHOTO
+/* =========================================
+   NEXT MEMORY
+========================================= */
 
 function nextMemory() {
 
@@ -459,7 +515,9 @@ function nextMemory() {
 }
 
 
-// PREVIOUS PHOTO
+/* =========================================
+   PREVIOUS MEMORY
+========================================= */
 
 function previousMemory() {
 
@@ -468,15 +526,17 @@ function previousMemory() {
         memoryIndex--;
 
         updateMemory();
- createParticles(5);
+
+        createParticles(5);
+
     }
 
 }
 
 
-// ======================================
-// FINAL CHAPTER
-// ======================================
+/* =========================================
+   FINAL CHAPTER
+========================================= */
 
 function showFinalMessage() {
 
@@ -485,3 +545,8 @@ function showFinalMessage() {
     createParticles(40);
 
 }
+
+
+/* =========================================
+   END OF JUNJUN'S LOVE LETTER
+========================================= */
