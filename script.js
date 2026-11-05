@@ -304,37 +304,66 @@ function createParticles(amount) {
 // MEMORY SLIDESHOW
 // ======================================
 
+
 const memories = [
 
     {
-        image: "images/us1.jpg",
+        image: "images/1.jpg",
         caption: "The beginning of something beautiful. ♡"
     },
 
     {
-        image: "images/us2.jpg",
-        caption: "One of my favorite moments with you."
+        image: "images/2.jpg",
+        caption: "The first time I made you feel like a princess.♡"
     },
 
     {
-        image: "images/us3.jpg",
-        caption: "You make ordinary days extraordinary."
+        image: "images/3.jpg",
+        caption: "Our first coffee date."
     },
 
     {
-        image: "images/us4.jpg",
-        caption: "A memory I wish I could relive."
+        image: "images/4.jpg",
+        caption: "A memory I wish I could relive(kissed)."
     },
 
     {
-        image: "images/us5.jpg",
-        caption: "And somehow, there's always more to love."
+        image: "images/5.jpg",
+        caption: "Random paper flower."
     },
 
     {
-        image: "images/us6.jpg",
-        caption: "My favorite person, in my favorite memories. ♡"
+        image: "images/6.jpg",
+        caption: "The gift is on my back :)."
+    },
+
+    {
+        image: "images/7.jpg",
+        caption: "First cine date."
+    },
+
+    {
+        image: "images/8.jpg",
+        caption: "Flowers for my hardworking Queen."
+    },
+
+    {
+        image: "images/9.jpg",
+        caption: "Picnic, sunshine, and a pretty beautiful date."
+    },
+
+    {
+        image: "images/10.jpg",
+        caption: "Date I'll never forget."
+    },
+
+    {
+        image: "images/11.jpg",
+        caption: "Graduating together. ♡"
     }
+
+];
+
 
 ];
 
