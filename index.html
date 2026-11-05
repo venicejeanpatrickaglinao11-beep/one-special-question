@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,45 +12,55 @@
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Dancing+Script:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- BACKGROUND PHOTOS -->
+    <!-- BACKGROUND SLIDESHOW -->
 
-    
-<div class="background">
-    <img src="images/us12.jpg" class="bg active" alt="">
-    <img src="images/us2.jpg" class="bg" alt="">
-    <img src="images/us3.jpg" class="bg" alt="">
-    <img src="images/us4.jpg" class="bg" alt="">
-    <img src="images/us5.jpg" class="bg" alt="">
-    <img src="images/us6.jpg" class="bg" alt="">
-    <img src="images/us7.jpg" class="bg" alt="">
-    <img src="images/us8.jpg" class="bg" alt="">
-    <img src="images/us9.jpg" class="bg" alt="">
-    <img src="images/us10.jpg" class="bg" alt="">
-    <img src="images/us11.jpg" class="bg" alt="">
-    <img src="images/us13.jpg" class="bg" alt="">
-    <img src="images/us14.jpg" class="bg" alt="">
-    <img src="images/us15.jpg" class="bg" alt="">
-    <img src="images/us16.jpg" class="bg" alt="">
-    <img src="images/us17.jpg" class="bg" alt="">
-</div>
+    <div class="background">
+
+        <img src="images/us12.jpg" class="bg active" alt="">
+        <img src="images/us2.jpg" class="bg" alt="">
+        <img src="images/us3.jpg" class="bg" alt="">
+        <img src="images/us4.jpg" class="bg" alt="">
+        <img src="images/us5.jpg" class="bg" alt="">
+        <img src="images/us6.jpg" class="bg" alt="">
+        <img src="images/us7.jpg" class="bg" alt="">
+        <img src="images/us8.jpg" class="bg" alt="">
+        <img src="images/us9.jpg" class="bg" alt="">
+        <img src="images/us10.jpg" class="bg" alt="">
+        <img src="images/us11.jpg" class="bg" alt="">
+        <img src="images/us13.jpg" class="bg" alt="">
+        <img src="images/us14.jpg" class="bg" alt="">
+        <img src="images/us15.jpg" class="bg" alt="">
+        <img src="images/us16.jpg" class="bg" alt="">
+        <img src="images/us17.jpg" class="bg" alt="">
+
+    </div>
 
     <div class="pink-overlay"></div>
-
     <div class="film-grain"></div>
+
 
     <!-- MUSIC -->
 
-    <audio id="backgroundMusic" loop>
+    <audio id="backgroundMusic" loop preload="none">
         <source src="music/our-song.mp3" type="audio/mpeg">
     </audio>
 
-    <button class="music-button" id="musicButton" onclick="toggleMusic()">
+    <button
+        class="music-button"
+        id="musicButton"
+        type="button"
+        onclick="toggleMusic()"
+        aria-label="Toggle background music">
+
         ♫ Music Off
+
     </button>
 
 
@@ -59,9 +70,13 @@
 
         <div class="glass-card entrance-card">
 
-            <p class="eyebrow">A LITTLE FAIRYTALE FOR YOU</p>
+            <p class="eyebrow">
+                A LITTLE FAIRYTALE FOR YOU
+            </p>
 
-            <h1>Hey, Pretty <span>♡</span></h1>
+            <h1>
+                Hey, Pretty <span>♡</span>
+            </h1>
 
             <p class="subtitle">
                 Somewhere between all the little moments,
@@ -76,11 +91,16 @@
                 I made a little something for you...
             </p>
 
-            
-            <button class="main-button" onclick="enterFairytale()">
+            <button
+                class="main-button"
+                type="button"
+                onclick="enterFairytale()">
+
                 Enter Our Little World
-                    <span>♡</span>
+                <span>♡</span>
+
             </button>
+
         </div>
 
         <div class="bottom-note">
@@ -96,9 +116,13 @@
 
         <div class="delivery-card">
 
-            <p class="eyebrow">A SPECIAL DELIVERY</p>
+            <p class="eyebrow">
+                A SPECIAL DELIVERY
+            </p>
 
-            <h1>A Little Letter For You</h1>
+            <h1>
+                A Little Letter For You
+            </h1>
 
             <p class="subtitle">
                 I believe this little butterfly has
@@ -107,8 +131,12 @@
 
             <div class="delivery-scene">
 
-                <div class="delivery-butterfly" id="deliveryButterfly">
+                <div
+                    class="delivery-butterfly"
+                    id="deliveryButterfly">
+
                     🦋
+
                 </div>
 
                 <div class="envelope" id="envelope">
@@ -122,7 +150,6 @@
                     <div class="env-left"></div>
                     <div class="env-right"></div>
                     <div class="env-bottom"></div>
-
                     <div class="env-flap"></div>
 
                 </div>
@@ -133,8 +160,14 @@
                 A letter written especially for you.
             </p>
 
-            <button class="main-button" id="openButton" onclick="openEnvelope()">
+            <button
+                class="main-button"
+                id="openButton"
+                type="button"
+                onclick="openEnvelope()">
+
                 Open Your Letter ♡
+
             </button>
 
         </div>
@@ -148,9 +181,13 @@
 
         <div class="letter-container">
 
-            <div class="letter-decoration">🌸 ✧ 🦋 ✧ 🌸</div>
+            <div class="letter-decoration">
+                🌸 ✧ 🦋 ✧ 🌸
+            </div>
 
-            <p class="letter-date">A LITTLE NOTE FROM MY HEART</p>
+            <p class="letter-date">
+                A LITTLE NOTE FROM MY HEART
+            </p>
 
             <h1>Dear Pretty,</h1>
 
@@ -198,7 +235,9 @@
 
             </div>
 
-            <div class="question-divider">✧ · · ♡ · · ✧</div>
+            <div class="question-divider">
+                ✧ · · ♡ · · ✧
+            </div>
 
             <h2>Will You Be My Girlfriend?</h2>
 
@@ -208,17 +247,27 @@
 
             <div class="answer-buttons">
 
-                <button class="yes-button" onclick="sayYes()">
+                <button
+                    class="yes-button"
+                    type="button"
+                    onclick="sayYes()">
+
                     YES! ♡
+
                 </button>
 
-                <button class="notyet-button" onclick="sayNotYet()">
+                <button
+                    class="notyet-button"
+                    type="button"
+                    onclick="sayNotYet()">
+
                     Not yet...
+
                 </button>
 
             </div>
 
-            <p id="answerMessage"></p>
+            <p id="answerMessage" aria-live="polite"></p>
 
         </div>
 
@@ -231,7 +280,9 @@
 
         <div class="glass-card celebration-card">
 
-            <div class="celebration-icons">💗 🦋 💗</div>
+            <div class="celebration-icons">
+                💗 🦋 💗
+            </div>
 
             <p class="eyebrow">
                 THE BEGINNING OF OUR NEXT CHAPTER
@@ -245,8 +296,13 @@
 
             <h2>Here's to us, Pretty. ♡</h2>
 
-            <button class="main-button" onclick="startMemories()">
+            <button
+                class="main-button"
+                type="button"
+                onclick="startMemories()">
+
                 Relive Our Little Memories →
+
             </button>
 
         </div>
@@ -268,7 +324,10 @@
 
             <div class="polaroid">
 
-                <img id="memoryImage" src="images/1.jpg" alt="Our memory">
+                <img
+                    id="memoryImage"
+                    src="images/1.jpg"
+                    alt="Our special memory">
 
                 <p id="memoryCaption">
                     Every moment with you is special.
@@ -276,32 +335,48 @@
 
             </div>
 
-            <div class="memory-counter" id="memoryCounter">
-                01 / 06
+            <div
+                class="memory-counter"
+                id="memoryCounter"
+                aria-live="polite">
+
+                01 / 11
+
             </div>
 
+            <!-- MEMORY NAVIGATION -->
 
-<div class="memory-navigation">
+            <div class="memory-navigation">
 
-    <button class="back-memory-button"
-            id="backMemoryButton"
-            onclick="previousMemory()">
-        ← Previous
-    </button>
+                <button
+                    class="back-memory-button"
+                    id="prevMemoryButton"
+                    type="button"
+                    onclick="previousMemory()"
+                    disabled>
 
-    <button class="main-button"
-            id="nextMemoryButton"
-            onclick="nextMemory()">
-        Next Memory →
-    </button>
+                    ← Previous
 
-</div>
+                </button>
 
+                <button
+                    class="main-button"
+                    id="nextMemoryButton"
+                    type="button"
+                    onclick="nextMemory()">
+
+                    Next Memory →
+
+                </button>
+
+            </div>
+
+        </div>
 
     </section>
 
 
-    <!-- PAGE 6: A NEW CHAPTER -->
+    <!-- PAGE 6: FINAL CHAPTER -->
 
     <section id="page6" class="page">
 
@@ -329,11 +404,15 @@
                 ✧ ─── ♡ ─── ✧
             </div>
 
-            <p class="film-credit">STARRING</p>
+            <p class="film-credit">
+                STARRING
+            </p>
 
             <h2>Pretty & Junjun</h2>
 
-            <p class="film-credit">DIRECTED WITH LOVE BY</p>
+            <p class="film-credit">
+                DIRECTED WITH LOVE BY
+            </p>
 
             <h3 class="ending-signature">
                 Your Future Boyfriend,<br>
@@ -357,12 +436,18 @@
     </section>
 
 
-    <!-- PARTICLES -->
+    <!-- FLOATING PARTICLES -->
 
-    <div id="particleContainer"></div>
+    <div
+        id="particleContainer"
+        aria-hidden="true">
+    </div>
 
+
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
