@@ -1464,6 +1464,44 @@ h2 {
         width: 100%;
         max-width: 250px;
     }
+
+}
+
+/* FORCE PREVIOUS BUTTON TO MATCH NEXT BUTTON */
+
+.memory-navigation .back-memory-button {
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    min-width: 175px !important;
+    min-height: 48px !important;
+
+    margin: 10px 0 !important;
+    padding: 15px 25px !important;
+
+    background: var(--wine) !important;
+    color: var(--cream) !important;
+
+    border: 1px solid var(--wine) !important;
+    border-radius: 2px !important;
+
+    font-family: var(--body) !important;
+    font-size: 9px !important;
+    font-weight: 500 !important;
+
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+
+    box-shadow: 0 8px 22px rgba(74,47,51,.15) !important;
+
+    transition: all .35s var(--ease) !important;
+}
+
+.memory-navigation .back-memory-button:hover {
+    background: transparent !important;
+    color: var(--wine) !important;
+    transform: translateY(-3px) !important;
 }
 
 
