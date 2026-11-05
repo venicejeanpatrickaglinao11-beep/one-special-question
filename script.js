@@ -335,166 +335,122 @@ function createParticles(amount) {
    OUR MEMORIES
 ========================================= */
 
-const memories = [
 
+/* ======================================
+   MEMORY SLIDESHOW — FIXED
+====================================== */
+
+const memories = [
     {
         image: "images/1.jpg",
         caption: "The beginning of something beautiful. ♡"
     },
-
     {
         image: "images/2.jpg",
         caption: "The first time I made you feel like a princess. ♡"
     },
-
     {
         image: "images/3.jpg",
         caption: "Our first coffee date."
     },
-
     {
         image: "images/4.jpg",
         caption: "A memory I wish I could relive (kissed)."
     },
-
     {
         image: "images/5.jpg",
         caption: "Random paper flower."
     },
-
     {
         image: "images/6.jpg",
         caption: "The gift is on my back :)."
     },
-
     {
         image: "images/7.jpg",
         caption: "First cine date."
     },
-
     {
         image: "images/8.jpg",
         caption: "Flowers for my hardworking Queen."
     },
-
     {
         image: "images/9.jpg",
         caption: "Picnic, sunshine, and a beautiful date."
     },
-
     {
         image: "images/10.jpg",
         caption: "Date I'll never forget."
     },
-
     {
         image: "images/11.jpg",
         caption: "Graduating together. ♡"
     }
-
 ];
-
 
 let memoryIndex = 0;
 
 
-/* =========================================
-   PRELOAD PHOTOS
-========================================= */
+// PRELOAD PHOTOS
 
 memories.forEach(memory => {
-
     const image = new Image();
-
     image.src = memory.image;
-
 });
 
 
-/* =========================================
-   START MEMORIES
-========================================= */
+// START MEMORIES
 
 function startMemories() {
-
     memoryIndex = 0;
-
     goToPage(5);
-
     updateMemory();
-
     createParticles(20);
-
 }
 
 
-/* =========================================
-   UPDATE MEMORY
-========================================= */
+// UPDATE PHOTO
 
 function updateMemory() {
 
     const image = document.getElementById("memoryImage");
-
     const caption = document.getElementById("memoryCaption");
-
     const counter = document.getElementById("memoryCounter");
 
     const previousButton =
-        document.getElementById("backMemoryButton");
+        document.getElementById("prevMemoryButton");
 
     const nextButton =
         document.getElementById("nextMemoryButton");
 
-
     if (!image || !caption || !counter ||
         !previousButton || !nextButton) {
-
-        console.error("Memory HTML elements are missing!");
-
+        console.error("Memory HTML elements are missing.");
         return;
-
     }
 
-
-    const currentMemory = memories[memoryIndex];
-
-
     image.style.animation = "none";
-
     void image.offsetWidth;
 
-    image.src = currentMemory.image;
-
+    image.src = memories[memoryIndex].image;
     image.style.animation = "photoEnter .8s ease";
 
-
-    caption.innerText = currentMemory.caption;
-
+    caption.innerText = memories[memoryIndex].caption;
 
     counter.innerText =
         String(memoryIndex + 1).padStart(2, "0") +
         " / " +
         String(memories.length).padStart(2, "0");
 
-
     previousButton.disabled = memoryIndex === 0;
-
-    previousButton.style.opacity =
-        memoryIndex === 0 ? ".4" : "1";
-
 
     nextButton.innerHTML =
         memoryIndex === memories.length - 1
-            ? "Finish Our Story ♡"
-            : "Next Memory →";
-
+        ? "Finish Our Story ♡"
+        : "Next Memory →";
 }
 
 
-/* =========================================
-   NEXT MEMORY
-========================================= */
+// NEXT PHOTO
 
 function nextMemory() {
 
@@ -511,13 +467,10 @@ function nextMemory() {
         showFinalMessage();
 
     }
-
 }
 
 
-/* =========================================
-   PREVIOUS MEMORY
-========================================= */
+// PREVIOUS PHOTO
 
 function previousMemory() {
 
@@ -534,9 +487,7 @@ function previousMemory() {
 }
 
 
-/* =========================================
-   FINAL CHAPTER
-========================================= */
+// FINAL CHAPTER
 
 function showFinalMessage() {
 
@@ -545,8 +496,3 @@ function showFinalMessage() {
     createParticles(40);
 
 }
-
-
-/* =========================================
-   END OF JUNJUN'S LOVE LETTER
-========================================= */
