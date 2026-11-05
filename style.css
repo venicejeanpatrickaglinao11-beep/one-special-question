@@ -1470,3 +1470,33 @@ h2 {
     }
 }
 
+/* FIX ENTRANCE BUTTON CLICK */
+
+#page1 {
+    position: relative;
+    z-index: 5;
+}
+
+#page1 .glass-card {
+    position: relative;
+    z-index: 10;
+}
+
+#page1 .main-button {
+    position: relative;
+    z-index: 20;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#page1 .glass-card::before,
+#page1 .glass-card::after {
+    pointer-events: none;
+}
+
+.pink-overlay,
+.background,
+.film-grain {
+    pointer-events: none;
+}
+
