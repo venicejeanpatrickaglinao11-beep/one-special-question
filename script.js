@@ -1,20 +1,18 @@
 
 /* =========================================
    JUNJUN'S LITTLE FAIRYTALE
-   COMPLETE FIXED JAVASCRIPT
+   COMPLETE WORKING JAVASCRIPT
 ========================================= */
 
 
-/* =========================================
-   PAGE NAVIGATION
-========================================= */
+/* PAGE NAVIGATION */
 
 function goToPage(number) {
 
     const selectedPage = document.getElementById("page" + number);
 
     if (!selectedPage) {
-        console.error("Page not found: page" + number);
+        console.error("Page not found:", number);
         return;
     }
 
@@ -32,9 +30,7 @@ function goToPage(number) {
 }
 
 
-/* =========================================
-   BACKGROUND SLIDESHOW
-========================================= */
+/* BACKGROUND SLIDESHOW */
 
 const backgrounds = document.querySelectorAll(".bg");
 
@@ -46,7 +42,8 @@ if (backgrounds.length > 1) {
 
         backgrounds[backgroundIndex].classList.remove("active");
 
-        backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+        backgroundIndex =
+            (backgroundIndex + 1) % backgrounds.length;
 
         backgrounds[backgroundIndex].classList.add("active");
 
@@ -55,16 +52,12 @@ if (backgrounds.length > 1) {
 }
 
 
-/* =========================================
-   MUSIC PLAYER
-========================================= */
+/* MUSIC */
 
 const music = document.getElementById("backgroundMusic");
-
 const musicButton = document.getElementById("musicButton");
 
 let musicPlaying = false;
-
 
 async function toggleMusic() {
 
@@ -73,10 +66,8 @@ async function toggleMusic() {
     if (musicPlaying) {
 
         music.pause();
-
         musicPlaying = false;
-
-        musicButton.innerHTML = "♫ Music Off";
+        musicButton.textContent = "♫ Music Off";
 
     } else {
 
@@ -85,21 +76,18 @@ async function toggleMusic() {
             await music.play();
 
             musicPlaying = true;
-
-            musicButton.innerHTML = "♫ Music On";
+            musicButton.textContent = "♫ Music On";
 
         } catch (error) {
 
-            musicButton.innerHTML = "Tap to Play ♫";
-
             console.error("Music error:", error);
+            musicButton.textContent = "Tap to Play ♫";
 
         }
 
     }
 
 }
-
 
 async function startMusic() {
 
@@ -110,23 +98,18 @@ async function startMusic() {
         await music.play();
 
         musicPlaying = true;
-
-        musicButton.innerHTML = "♫ Music On";
+        musicButton.textContent = "♫ Music On";
 
     } catch (error) {
 
-        musicButton.innerHTML = "♫ Music Off";
-
-        console.log("Music requires user interaction.");
+        console.log("Music could not start:", error);
 
     }
 
 }
 
 
-/* =========================================
-   ENTRANCE
-========================================= */
+/* ENTRANCE */
 
 function enterFairytale() {
 
@@ -134,7 +117,8 @@ function enterFairytale() {
 
     goToPage(2);
 
-    const butterfly = document.getElementById("deliveryButterfly");
+    const butterfly =
+        document.getElementById("deliveryButterfly");
 
     if (butterfly) {
 
@@ -151,19 +135,15 @@ function enterFairytale() {
 }
 
 
-/* =========================================
-   ENVELOPE ANIMATION
-========================================= */
+/* ENVELOPE */
 
 let envelopeOpened = false;
-
 
 function openEnvelope() {
 
     if (envelopeOpened) return;
 
     const envelope = document.getElementById("envelope");
-
     const button = document.getElementById("openButton");
 
     if (!envelope || !button) return;
@@ -173,19 +153,13 @@ function openEnvelope() {
     envelope.classList.add("open");
 
     button.disabled = true;
+    button.textContent = "Opening your letter... ♡";
 
-    button.innerHTML = "Opening your letter... ♡";
-
-    setTimeout(() => {
-
-        butterflyEscape();
-
-    }, 650);
+    setTimeout(butterflyEscape, 650);
 
     setTimeout(() => {
 
         goToPage(3);
-
         createParticles(18);
 
     }, 2000);
@@ -193,13 +167,12 @@ function openEnvelope() {
 }
 
 
-/* =========================================
-   BUTTERFLIES ESCAPING
-========================================= */
+/* BUTTERFLY ESCAPE */
 
 function butterflyEscape() {
 
-    const container = document.getElementById("particleContainer");
+    const container =
+        document.getElementById("particleContainer");
 
     if (!container) return;
 
@@ -207,12 +180,10 @@ function butterflyEscape() {
 
         const butterfly = document.createElement("div");
 
-        butterfly.innerHTML = "🦋";
-
+        butterfly.textContent = "🦋";
         butterfly.className = "particle";
 
         butterfly.style.left = "45%";
-
         butterfly.style.bottom = "35%";
 
         butterfly.style.fontSize =
@@ -221,25 +192,23 @@ function butterflyEscape() {
         container.appendChild(butterfly);
 
         const x = (Math.random() - 0.5) * window.innerWidth;
-
         const y = -(150 + Math.random() * 450);
 
         const animation = butterfly.animate([
 
             {
-                transform: "translate(0, 0) rotate(0deg)",
+                transform: "translate(0,0) rotate(0deg)",
                 opacity: 1
             },
 
             {
-                transform: `translate(${x}px, ${y}px) rotate(360deg)`,
+                transform: `translate(${x}px,${y}px) rotate(360deg)`,
                 opacity: 0
             }
 
         ], {
 
             duration: 2000 + Math.random() * 1800,
-
             easing: "ease-out"
 
         });
@@ -251,17 +220,16 @@ function butterflyEscape() {
 }
 
 
-/* =========================================
-   NOT YET BUTTON
-========================================= */
+/* NOT YET */
 
 function sayNotYet() {
 
-    const message = document.getElementById("answerMessage");
+    const message =
+        document.getElementById("answerMessage");
 
     if (!message) return;
 
-    message.innerText =
+    message.textContent =
         "No pressure, Pretty. Take all the time you need. Your happiness matters to me. ♡";
 
     createParticles(8);
@@ -269,9 +237,7 @@ function sayNotYet() {
 }
 
 
-/* =========================================
-   YES CELEBRATION
-========================================= */
+/* YES */
 
 function sayYes() {
 
@@ -280,21 +246,18 @@ function sayYes() {
     createParticles(55);
 
     setTimeout(() => {
-
         createParticles(25);
-
     }, 1200);
 
 }
 
 
-/* =========================================
-   FLOATING PARTICLES
-========================================= */
+/* PARTICLES */
 
 function createParticles(amount) {
 
-    const container = document.getElementById("particleContainer");
+    const container =
+        document.getElementById("particleContainer");
 
     if (!container) return;
 
@@ -306,7 +269,7 @@ function createParticles(amount) {
 
         particle.className = "particle";
 
-        particle.innerHTML =
+        particle.textContent =
             symbols[Math.floor(Math.random() * symbols.length)];
 
         particle.style.left = Math.random() * 100 + "vw";
@@ -320,11 +283,7 @@ function createParticles(amount) {
 
         container.appendChild(particle);
 
-        setTimeout(() => {
-
-            particle.remove();
-
-        }, duration);
+        setTimeout(() => particle.remove(), duration);
 
     }
 
@@ -332,89 +291,109 @@ function createParticles(amount) {
 
 
 /* =========================================
-   OUR MEMORIES
+   MEMORY SLIDESHOW
 ========================================= */
 
-
-/* ======================================
-   MEMORY SLIDESHOW — FIXED
-====================================== */
-
 const memories = [
+
     {
         image: "images/1.jpg",
         caption: "The beginning of something beautiful. ♡"
     },
+
     {
         image: "images/2.jpg",
         caption: "The first time I made you feel like a princess. ♡"
     },
+
     {
         image: "images/3.jpg",
         caption: "Our first coffee date."
     },
+
     {
         image: "images/4.jpg",
         caption: "A memory I wish I could relive (kissed)."
     },
+
     {
         image: "images/5.jpg",
         caption: "Random paper flower."
     },
+
     {
         image: "images/6.jpg",
         caption: "The gift is on my back :)."
     },
+
     {
         image: "images/7.jpg",
         caption: "First cine date."
     },
+
     {
         image: "images/8.jpg",
         caption: "Flowers for my hardworking Queen."
     },
+
     {
         image: "images/9.jpg",
         caption: "Picnic, sunshine, and a beautiful date."
     },
+
     {
         image: "images/10.jpg",
         caption: "Date I'll never forget."
     },
+
     {
         image: "images/11.jpg",
         caption: "Graduating together. ♡"
     }
+
 ];
 
 let memoryIndex = 0;
 
 
-// PRELOAD PHOTOS
+/* PRELOAD MEMORIES */
 
 memories.forEach(memory => {
-    const image = new Image();
-    image.src = memory.image;
+
+    const photo = new Image();
+
+    photo.src = memory.image;
+
 });
 
 
-// START MEMORIES
+/* START MEMORIES */
 
 function startMemories() {
+
     memoryIndex = 0;
-    goToPage(5);
+
     updateMemory();
+
+    goToPage(5);
+
     createParticles(20);
+
 }
 
 
-// UPDATE PHOTO
+/* UPDATE MEMORY */
 
 function updateMemory() {
 
-    const image = document.getElementById("memoryImage");
-    const caption = document.getElementById("memoryCaption");
-    const counter = document.getElementById("memoryCounter");
+    const image =
+        document.getElementById("memoryImage");
+
+    const caption =
+        document.getElementById("memoryCaption");
+
+    const counter =
+        document.getElementById("memoryCounter");
 
     const previousButton =
         document.getElementById("prevMemoryButton");
@@ -422,35 +401,63 @@ function updateMemory() {
     const nextButton =
         document.getElementById("nextMemoryButton");
 
-    if (!image || !caption || !counter ||
-        !previousButton || !nextButton) {
-        console.error("Memory HTML elements are missing.");
+    if (
+        !image ||
+        !caption ||
+        !counter ||
+        !previousButton ||
+        !nextButton
+    ) {
+
+        console.error("Memory elements not found.");
         return;
+
     }
 
+    const currentMemory = memories[memoryIndex];
+
+    if (!currentMemory) return;
+
+    /* RESET IMAGE ANIMATION */
+
     image.style.animation = "none";
+
     void image.offsetWidth;
 
-    image.src = memories[memoryIndex].image;
+    /* CHANGE PHOTO */
+
+    image.src = currentMemory.image;
+
+    image.alt = currentMemory.caption;
+
     image.style.animation = "photoEnter .8s ease";
 
-    caption.innerText = memories[memoryIndex].caption;
+    /* CHANGE CAPTION */
 
-    counter.innerText =
+    caption.textContent = currentMemory.caption;
+
+    /* UPDATE COUNTER */
+
+    counter.textContent =
         String(memoryIndex + 1).padStart(2, "0") +
         " / " +
         String(memories.length).padStart(2, "0");
 
+    /* PREVIOUS BUTTON */
+
     previousButton.disabled = memoryIndex === 0;
 
-    nextButton.innerHTML =
+    /* NEXT BUTTON */
+
+    nextButton.textContent =
         memoryIndex === memories.length - 1
-        ? "Finish Our Story ♡"
-        : "Next Memory →";
+            ? "Finish Our Story ♡"
+            : "Next Memory →";
+
 }
 
 
-// NEXT PHOTO
+/* NEXT MEMORY */
 
 function nextMemory() {
 
@@ -467,10 +474,11 @@ function nextMemory() {
         showFinalMessage();
 
     }
+
 }
 
 
-// PREVIOUS PHOTO
+/* PREVIOUS MEMORY */
 
 function previousMemory() {
 
@@ -487,7 +495,7 @@ function previousMemory() {
 }
 
 
-// FINAL CHAPTER
+/* FINAL CHAPTER */
 
 function showFinalMessage() {
 
@@ -496,3 +504,40 @@ function showFinalMessage() {
     createParticles(40);
 
 }
+
+
+/* =========================================
+   BUTTON EVENT LISTENERS
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.getElementById("enterButton")
+        ?.addEventListener("click", enterFairytale);
+
+    document.getElementById("openButton")
+        ?.addEventListener("click", openEnvelope);
+
+    document.getElementById("musicButton")
+        ?.addEventListener("click", toggleMusic);
+
+    document.getElementById("yesButton")
+        ?.addEventListener("click", sayYes);
+
+    document.getElementById("notYetButton")
+        ?.addEventListener("click", sayNotYet);
+
+    document.getElementById("memoriesButton")
+        ?.addEventListener("click", startMemories);
+
+    document.getElementById("nextMemoryButton")
+        ?.addEventListener("click", nextMemory);
+
+    document.getElementById("prevMemoryButton")
+        ?.addEventListener("click", previousMemory);
+
+    /* INITIALIZE MEMORY COUNTER */
+
+    updateMemory();
+
+});
