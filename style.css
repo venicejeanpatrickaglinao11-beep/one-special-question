@@ -1,16 +1,9 @@
 
 /* =========================================
    JUNJUN'S LOVE LETTER
-   PREMIUM FILM AESTHETIC
-   PART 1 — FOUNDATION & BACKGROUND
+   PREMIUM DREAMY FILM AESTHETIC
+   CSS PART 1 OF 3
 ========================================= */
-
-/* GOOGLE FONTS */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
-
-
-/* COLOR PALETTE */
 
 :root {
     --cream: #faf5ed;
@@ -27,9 +20,10 @@
     --letter: 'Cormorant Garamond', serif;
 
     --ease: cubic-bezier(.22, 1, .36, 1);
-    --shadow: 0 24px 70px rgba(58,38,36,.13);
-}
 
+    --shadow:
+        0 24px 70px rgba(58,38,36,.13);
+}
 
 /* RESET */
 
@@ -69,8 +63,7 @@ button:focus-visible {
     color: white;
 }
 
-
-/* BACKGROUND PHOTO SLIDESHOW */
+/* BACKGROUND SLIDESHOW */
 
 .background {
     position: fixed;
@@ -86,9 +79,16 @@ button:focus-visible {
     width: 106%;
     height: 106%;
     object-fit: cover;
+
     opacity: 0;
-    filter: saturate(.68) brightness(.76) sepia(.12);
+
+    filter:
+        saturate(.68)
+        brightness(.76)
+        sepia(.12);
+
     transform: scale(1.04);
+
     transition:
         opacity 2.8s ease,
         transform 10s var(--ease);
@@ -99,8 +99,7 @@ button:focus-visible {
     transform: scale(1);
 }
 
-
-/* DREAMY PINK OVERLAY */
+/* PINK OVERLAY */
 
 .pink-overlay {
     position: fixed;
@@ -116,8 +115,7 @@ button:focus-visible {
     );
 }
 
-
-/* FILM GRAIN EFFECT */
+/* FILM GRAIN */
 
 .film-grain {
     position: fixed;
@@ -129,39 +127,34 @@ button:focus-visible {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.35'/%3E%3C/svg%3E");
 }
 
+/* MUSIC BUTTON */
 
-/* RECORDING INDICATOR */
-
-.recording-indicator {
+.music-button {
     position: fixed;
-    top: 25px;
-    left: 25px;
+    top: 22px;
+    right: 22px;
     z-index: 100;
 
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    padding: 11px 17px;
 
     color: var(--wine);
+    background: rgba(249,244,237,.88);
+
+    border: 1px solid rgba(183,154,117,.3);
+    border-radius: 2px;
+
     font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    backdrop-filter: blur(12px);
+    transition: .3s ease;
 }
 
-.rec-dot {
-    width: 7px;
-    height: 7px;
-    background: #bd6464;
-    border-radius: 50%;
-    animation: recordingBlink 1.5s infinite;
+.music-button:hover {
+    background: var(--wine);
+    color: white;
 }
-
-@keyframes recordingBlink {
-    50% {
-        opacity: .2;
-    }
-}
-
 
 /* PAGE TRANSITIONS */
 
@@ -200,11 +193,9 @@ button:focus-visible {
     }
 }
 
-
 /* TYPOGRAPHY */
 
-h1,
-h2 {
+h1, h2 {
     font-family: var(--serif);
     font-weight: 400;
     color: var(--wine);
@@ -254,7 +245,6 @@ h2 {
     letter-spacing: 12px;
 }
 
-
 /* GLASS CARDS */
 
 .glass-card,
@@ -281,28 +271,20 @@ h2 {
     content: "";
     position: absolute;
     inset: 10px;
-
     border: 1px solid rgba(183,154,117,.25);
-
     pointer-events: none;
 }
 
 .glass-card::after,
 .delivery-card::after {
     content: "✳";
-
     position: absolute;
     top: 18px;
     left: 50%;
-
     transform: translateX(-50%);
-
     color: var(--gold);
     font-size: 11px;
 }
-
-
-/* FLOATING ENTRANCE CARD */
 
 .entrance-card {
     animation: cardFloat 8s ease-in-out infinite;
@@ -314,16 +296,7 @@ h2 {
     }
 }
 
-
-/* END OF PART 1
-   WAIT FOR PART 2 BEFORE FINISHING CSS.
-========================================= */
-
-/* =========================================
-   PART 2 — INTERACTIONS & LOVE LETTER
-========================================= */
-
-/* MAIN BUTTONS */
+/* BUTTONS */
 
 .main-button {
     display: inline-flex;
@@ -345,7 +318,8 @@ h2 {
     letter-spacing: 2px;
     text-transform: uppercase;
 
-    box-shadow: 0 8px 22px rgba(74,47,51,.15);
+    box-shadow:
+        0 8px 22px rgba(74,47,51,.15);
 
     transition: all .35s var(--ease);
 }
@@ -353,14 +327,7 @@ h2 {
 .main-button:hover {
     background: transparent;
     color: var(--wine);
-
     transform: translateY(-3px);
-
-    box-shadow: 0 12px 28px rgba(74,47,51,.12);
-}
-
-.main-button:active {
-    transform: scale(.97);
 }
 
 .main-button:disabled {
@@ -368,243 +335,486 @@ h2 {
     cursor: wait;
 }
 
+/* BOTTOM SIGNATURE */
 
-/* MUSIC BUTTON */
-
-.music-button {
-    position: fixed;
-    top: 22px;
-    right: 22px;
-    z-index: 100;
-
-    padding: 11px 17px;
-
-    color: var(--wine);
-    background: rgba(249,244,237,.88);
-
-    border: 1px solid rgba(183,154,117,.3);
-    border-radius: 2px;
-
-    font-size: 9px;
-    letter-spacing: 1.5px;
+.bottom-note {
+    position: absolute;
+    bottom: 19px;
+    color: var(--muted);
+    font-size: 8px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-
-    backdrop-filter: blur(12px);
-
-    transition: .3s ease;
 }
-
-.music-button:hover {
-    background: var(--wine);
-    color: white;
-}
-
-
-/* BUTTERFLY DELIVERY SCENE */
-
 
 /* =========================================
-   FIXED ENVELOPE ANIMATION
+   JUNJUN'S LOVE LETTER
+   CSS PART 2 OF 3
+   ENVELOPE • BUTTERFLIES • LOVE LETTER
 ========================================= */
 
 
-/* =====================================
-   ENVELOPE LETTER VISIBILITY FIX
-===================================== */
+/* =========================================
+   PAGE 2 — DELIVERY SCENE
+========================================= */
+
+.delivery-card {
+    max-width: 650px;
+    padding: 55px 30px 60px;
+    overflow: hidden;
+}
+
+.delivery-card h1 {
+    font-size: clamp(38px, 6vw, 61px);
+}
 
 .delivery-scene {
-    overflow: visible !important;
-    isolation: isolate;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 260px;
+
+    margin: 25px auto 15px;
 }
+
+/* BUTTERFLY DELIVERY */
+
+.delivery-butterfly {
+    position: absolute;
+    z-index: 10;
+
+    top: 5px;
+    left: 50%;
+
+    font-size: 52px;
+
+    transform: translateX(-50%);
+    filter: drop-shadow(0 8px 12px rgba(91,54,73,.18));
+
+    opacity: 0;
+}
+
+.delivery-butterfly.fly-in {
+    animation: butterflyDelivery 2.5s var(--ease) forwards;
+}
+
+@keyframes butterflyDelivery {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -100px) rotate(-20deg) scale(.5);
+    }
+
+    25% {
+        opacity: 1;
+        transform: translate(-50%, -30px) rotate(15deg) scale(1.1);
+    }
+
+    50% {
+        transform: translate(-50%, 25px) rotate(-10deg);
+    }
+
+    75% {
+        transform: translate(-50%, 0) rotate(10deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -5px) rotate(0deg);
+    }
+}
+
+
+/* =========================================
+   ENVELOPE — PREMIUM 3D DESIGN
+========================================= */
 
 .envelope {
     position: relative;
-    isolation: auto !important;
-    overflow: visible !important;
+
+    width: 270px;
+    height: 175px;
+
+    margin-top: 65px;
+
+    perspective: 1000px;
+
+    filter: drop-shadow(0 18px 18px rgba(83,53,52,.18));
+
+    transition: transform .6s ease;
 }
+
+.envelope:hover {
+    transform: translateY(-5px);
+}
+
+/* ENVELOPE BACK */
+
+.env-back {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background: #c88f98;
+    border-radius: 4px;
+}
+
+/* LETTER INSIDE */
 
 .letter-inside {
-    position: absolute !important;
+    position: absolute;
 
-    z-index: 20 !important;
+    left: 10px;
+    bottom: 5px;
 
-    top: 5%;
-    left: 8%;
+    z-index: 2;
 
-    width: 84%;
-    height: 90%;
+    width: 250px;
+    height: 150px;
 
-    transform: translateY(0);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding-top: 25px;
+
+    background: #fffaf2;
+
+    border: 1px solid #eadbd1;
+
+    color: #b17a82;
+    font-family: var(--hand);
+    font-size: 35px;
 
     transition:
-        transform 1.4s cubic-bezier(.16, 1, .3, 1) .2s,
-        z-index 0s linear .2s;
+        transform 1s var(--ease),
+        z-index .1s;
 }
 
-.envelope.open .letter-inside {
-    z-index: 20 !important;
-    transform: translateY(-145px) !important;
+.letter-inside span {
+    opacity: .65;
 }
 
-.envelope.open .env-flap {
-    transform: rotateX(180deg);
-    z-index: 1 !important;
+/* LEFT AND RIGHT FOLDS */
+
+.env-left {
+    position: absolute;
+    inset: 0;
+
+    z-index: 4;
+
+    background: #dbaeb1;
+
+    clip-path: polygon(0 0, 50% 50%, 0 100%);
 }
 
-.envelope.open .env-left,
-.envelope.open .env-right,
-.envelope.open .env-bottom {
-    z-index: 2;
+.env-right {
+    position: absolute;
+    inset: 0;
+
+    z-index: 4;
+
+    background: #cf9ca3;
+
+    clip-path: polygon(100% 0, 50% 50%, 100% 100%);
 }
 
-/* FRONT FLAP */
+/* BOTTOM FOLD */
+
+.env-bottom {
+    position: absolute;
+    inset: 0;
+
+    z-index: 5;
+
+    background: #e5bfc0;
+
+    clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+}
+
+/* TOP FLAP */
 
 .env-flap {
     position: absolute;
-    inset: 0;
-    z-index: 5;
 
-    background: linear-gradient(
-        135deg,
-        #d6aaa5,
-        #bd858a
-    );
+    top: 0;
+    left: 0;
 
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        50% 57%
-    );
+    z-index: 6;
+
+    width: 100%;
+    height: 100%;
+
+    background: #d5a3a9;
+
+    clip-path: polygon(0 0, 100% 0, 50% 57%);
 
     transform-origin: top center;
 
-    transition: transform 1s ease;
+    transition:
+        transform .9s var(--ease),
+        opacity .5s ease;
+
+    backface-visibility: hidden;
 }
 
 /* OPEN ENVELOPE */
 
 .envelope.open .env-flap {
     transform: rotateX(180deg);
+    opacity: 0;
+    z-index: 0;
 }
-
-/* LETTER COMES OUT */
 
 .envelope.open .letter-inside {
-    z-index: 6;
-    transform: translateY(-120px);
+    transform: translateY(-110px);
+    z-index: 7;
 }
 
 
-/* LOVE LETTER PAPER */
+/* =========================================
+   PAGE 3 — LOVE LETTER
+========================================= */
 
 .letter-container {
     position: relative;
 
-    width: min(100%, 730px);
+    width: min(100%, 690px);
 
-    padding: clamp(38px, 7vw, 75px);
+    padding: clamp(35px, 7vw, 75px);
 
-    text-align: center;
+    margin: auto;
 
     background:
         linear-gradient(
-            90deg,
-            rgba(189,148,124,.035),
-            transparent 8%,
-            transparent 92%,
-            rgba(189,148,124,.035)
-        ),
-        #fffaf1;
+            rgba(255,251,244,.96),
+            rgba(250,243,233,.96)
+        );
 
-    border: 1px solid rgba(183,154,117,.35);
+    border: 1px solid rgba(183,154,117,.38);
 
     box-shadow:
-        0 25px 70px rgba(62,43,38,.16),
-        inset 0 0 45px rgba(193,160,128,.07);
+        0 30px 90px rgba(67,45,42,.16),
+        inset 0 0 50px rgba(190,151,130,.06);
+
+    text-align: center;
 }
+
+/* INNER DECORATIVE BORDER */
 
 .letter-container::before {
     content: "";
 
     position: absolute;
-    inset: 13px;
+    inset: 12px;
 
-    border: 1px solid rgba(183,154,117,.25);
+    border: 1px solid rgba(183,154,117,.28);
 
     pointer-events: none;
 }
 
+/* CORNER DECORATIONS */
 
-/* LETTER DECORATIONS */
+.letter-container::after {
+    content: "✧";
 
-.letter-decoration {
-    margin-bottom: 24px;
+    position: absolute;
+    top: 20px;
+    right: 25px;
 
     color: var(--gold);
-    font-size: 25px;
+    font-size: 20px;
+}
+
+.letter-decoration {
+    margin-bottom: 30px;
+
+    font-size: 20px;
+    letter-spacing: 10px;
+
+    color: var(--rose);
 }
 
 .letter-date {
-    color: var(--muted);
+    margin-bottom: 15px;
 
     font-size: 9px;
     letter-spacing: 4px;
+
+    color: var(--gold);
     text-transform: uppercase;
 }
 
 .letter-container h1 {
     font-family: var(--hand);
 
-    font-size: clamp(55px, 8vw, 83px);
+    font-size: clamp(45px, 7vw, 65px);
 
-    font-weight: 400;
     color: var(--rose-dark);
+
+    letter-spacing: 0;
 }
 
-
-/* LETTER CONTENT */
+/* LETTER BODY */
 
 .letter-content {
-    max-width: 550px;
+    max-width: 490px;
 
     margin: 30px auto;
 
     text-align: left;
 
     font-family: var(--letter);
-    font-size: 23px;
-    line-height: 1.85;
 
-    color: #66504d;
+    font-size: clamp(18px, 2.5vw, 21px);
+
+    line-height: 1.9;
+
+    color: #62504b;
 }
 
 .letter-content p {
-    margin: 16px 0;
-
-    animation: letterAppear .8s ease both;
+    margin-bottom: 20px;
 }
 
-.letter-content p:nth-child(2) {
-    animation-delay: .1s;
+.letter-content p:first-child {
+    font-size: 25px;
+    color: var(--rose-dark);
 }
 
-.letter-content p:nth-child(3) {
-    animation-delay: .2s;
+.signature {
+    margin-top: 35px;
+
+    text-align: right;
+
+    font-family: var(--hand);
+
+    font-size: 30px;
+
+    color: var(--rose-dark);
 }
 
-.letter-content p:nth-child(4) {
-    animation-delay: .3s;
+/* QUESTION DIVIDER */
+
+.question-divider {
+    margin: 35px 0;
+
+    color: var(--gold);
+
+    font-family: var(--serif);
+    font-size: 17px;
+
+    letter-spacing: 5px;
 }
 
-.letter-content p:nth-child(5) {
-    animation-delay: .4s;
+/* THE BIG QUESTION */
+
+.letter-container h2 {
+    margin: 15px 0;
+
+    font-size: clamp(31px, 5vw, 47px);
+
+    color: var(--wine);
 }
 
-.letter-content p:nth-child(6) {
-    animation-delay: .5s;
+.question-subtitle {
+    margin: 15px 0 30px;
+
+    color: var(--muted);
+
+    font-family: var(--letter);
+    font-size: 20px;
+    font-style: italic;
 }
 
-@keyframes letterAppear {
+
+/* =========================================
+   YES / NOT YET BUTTONS
+========================================= */
+
+.answer-buttons {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin: 30px 0 15px;
+}
+
+.yes-button,
+.notyet-button {
+    min-width: 145px;
+
+    padding: 14px 30px;
+
+    border-radius: 2px;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transition: all .35s var(--ease);
+}
+
+.yes-button {
+    color: white;
+
+    background: var(--wine);
+
+    border: 1px solid var(--wine);
+
+    box-shadow: 0 8px 20px rgba(104,69,78,.18);
+}
+
+.yes-button:hover {
+    transform: translateY(-4px);
+
+    background: var(--rose-dark);
+
+    box-shadow: 0 12px 25px rgba(104,69,78,.25);
+}
+
+.notyet-button {
+    color: var(--wine);
+
+    background: transparent;
+
+    border: 1px solid rgba(104,69,78,.4);
+}
+
+.notyet-button:hover {
+    background: rgba(197,140,145,.12);
+
+    transform: translateY(-3px);
+}
+
+/* RESPONSE MESSAGE */
+
+#answerMessage {
+    max-width: 400px;
+
+    margin: 25px auto 0;
+
+    color: var(--rose-dark);
+
+    font-family: var(--hand);
+
+    font-size: 25px;
+    line-height: 1.5;
+
+    animation: messageReveal .7s var(--ease) both;
+}
+
+@keyframes messageReveal {
     from {
         opacity: 0;
         transform: translateY(10px);
@@ -617,113 +827,581 @@ h2 {
 }
 
 
-/* HANDWRITTEN SIGNATURE */
+/* =========================================
+   FLOATING PARTICLES
+========================================= */
 
-.letter-content .signature {
-    margin-top: 35px;
+#particleContainer {
+    position: fixed;
 
-    text-align: right;
+    inset: 0;
 
+    z-index: 90;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+
+    bottom: -50px;
+
+    pointer-events: none;
+
+    animation: floatParticle 4s ease-out forwards;
+
+    filter: drop-shadow(0 3px 5px rgba(100,60,70,.12));
+}
+
+@keyframes floatParticle {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0deg) scale(.5);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-110vh) rotate(35deg) scale(1.3);
+    }
+}
+
+/* =========================================
+   JUNJUN'S LOVE LETTER
+   CSS PART 3 OF 3
+   CELEBRATION • MEMORIES • FINAL CHAPTER
+========================================= */
+
+
+/* =========================================
+   PAGE 4 — YES CELEBRATION
+========================================= */
+
+.celebration-card {
+    max-width: 650px;
+    padding: 75px 35px;
+    overflow: hidden;
+}
+
+.celebration-icons {
+    margin-bottom: 25px;
+
+    font-size: 42px;
+    letter-spacing: 12px;
+
+    animation: celebrationFloat 3s ease-in-out infinite;
+}
+
+@keyframes celebrationFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.celebration-card h1 {
     font-family: var(--hand);
-    font-size: 38px;
+
+    font-size: clamp(65px, 10vw, 100px);
 
     color: var(--rose-dark);
+
+    animation: titleReveal 1.2s var(--ease) both;
+}
+
+.celebration-card h2 {
+    margin-top: 35px;
+
+    font-size: 29px;
+    font-style: italic;
+}
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: scale(.8);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
 }
 
 
-/* QUESTION SECTION */
+/* =========================================
+   PAGE 5 — MEMORY CHAPTER
+========================================= */
 
-.question-divider {
-    margin: 38px 0 25px;
+.memory-container {
+    width: min(100%, 760px);
 
-    color: var(--gold);
-    letter-spacing: 7px;
+    margin: auto;
+
+    padding: 35px 20px 60px;
+
+    text-align: center;
 }
 
-.letter-container h2 {
+.memory-container > h1 {
     font-family: var(--hand);
 
-    font-size: clamp(48px, 7vw, 70px);
+    font-size: clamp(55px, 8vw, 85px);
 
-    font-weight: 400;
+    margin: 15px 0 35px;
+
     color: var(--wine);
 }
 
-.question-subtitle {
-    color: var(--muted);
-    font-size: 11px;
+/* POLAROID FRAME */
+
+.polaroid {
+    position: relative;
+
+    width: min(100%, 410px);
+
+    margin: 0 auto 25px;
+
+    padding: 15px 15px 28px;
+
+    background: #fffdf8;
+
+    box-shadow:
+        0 20px 55px rgba(54,39,35,.18),
+        0 3px 8px rgba(54,39,35,.08);
+
+    transform: rotate(-1deg);
+
+    transition:
+        transform .6s var(--ease),
+        box-shadow .6s ease;
 }
 
+.polaroid:hover {
+    transform: rotate(0deg) translateY(-5px);
 
-/* YES AND NOT YET BUTTONS */
-
-.answer-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 12px;
-    margin-top: 28px;
+    box-shadow:
+        0 28px 65px rgba(54,39,35,.22);
 }
 
-.yes-button,
-.notyet-button {
-    min-width: 125px;
+.polaroid img {
+    display: block;
 
-    padding: 14px 28px;
+    width: 100%;
 
-    border-radius: 2px;
+    height: clamp(270px, 55vw, 420px);
 
-    font-size: 10px;
+    object-fit: cover;
+
+    background: #eaded5;
+
+    filter:
+        saturate(.78)
+        contrast(.96)
+        sepia(.08);
+
+    animation: photoEnter .8s var(--ease) both;
+}
+
+@keyframes photoEnter {
+    from {
+        opacity: 0;
+        transform: scale(.96);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+/* POLAROID CAPTION */
+
+.polaroid p {
+    margin-top: 20px;
+
+    color: var(--wine);
+
+    font-family: var(--hand);
+
+    font-size: 27px;
+    line-height: 1.3;
+}
+
+/* PHOTO COUNTER */
+
+.memory-counter {
+    margin: 22px 0;
+
+    color: var(--rose-dark);
+
+    font-size: 9px;
+
     font-weight: 500;
-    letter-spacing: 1.5px;
+
+    letter-spacing: 4px;
+}
+
+/* SLIDESHOW BUTTONS */
+
+.memory-container .main-button {
+    margin-top: 10px;
+    min-width: 175px;
+}
+
+/* BACK BUTTON */
+
+.back-memory-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    margin: 10px 8px;
+    padding: 14px 25px;
+
+    background: rgba(250,245,237,.8);
+
+    border: 1px solid rgba(104,69,78,.35);
+
+    color: var(--wine);
+
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: 2px;
     text-transform: uppercase;
 
-    transition: .35s var(--ease);
+    transition: all .3s ease;
 }
 
-.yes-button {
+.back-memory-button:hover {
     background: var(--wine);
     color: white;
 
-    border: 1px solid var(--wine);
+    transform: translateY(-3px);
 }
 
-.notyet-button {
-    background: transparent;
+/* DISABLED BACK BUTTON */
+
+.back-memory-button:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================
+   FINAL CHAPTER
+========================================= */
+
+.final-message {
+    position: relative;
+
+    width: min(100%, 680px);
+
+    margin: 50px auto 0;
+
+    padding: clamp(45px, 8vw, 80px) 25px;
+
+    background: rgba(249,244,237,.93);
+
+    border: 1px solid rgba(183,154,117,.4);
+
+    box-shadow: var(--shadow);
+
+    animation: finalReveal 1.5s var(--ease) both;
+}
+
+.final-message::before {
+    content: "";
+
+    position: absolute;
+    inset: 12px;
+
+    border: 1px solid rgba(183,154,117,.3);
+
+    pointer-events: none;
+}
+
+@keyframes finalReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(.97);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+.final-decoration {
+    margin-bottom: 30px;
+
+    font-size: 29px;
+    letter-spacing: 12px;
+}
+
+.final-message h1 {
+    font-family: var(--serif);
+
+    font-size: clamp(35px, 6vw, 57px);
+
+    line-height: 1.2;
+
     color: var(--wine);
-
-    border: 1px solid rgba(104,69,78,.35);
 }
 
-.yes-button:hover {
-    background: var(--rose-dark);
-    border-color: var(--rose-dark);
+.final-message > p {
+    max-width: 450px;
 
-    transform: translateY(-3px);
-}
+    margin: 25px auto;
 
-.notyet-button:hover {
-    background: #eee4d9;
-
-    transform: translateY(-3px);
-}
-
-
-/* ANSWER MESSAGE */
-
-#answerMessage {
-    margin-top: 22px;
-
-    color: var(--rose-dark);
+    color: var(--muted);
 
     font-family: var(--letter);
-    font-size: 20px;
-    font-style: italic;
+
+    font-size: 22px;
+
     line-height: 1.7;
 }
 
+.final-message h2 {
+    margin-top: 40px;
 
-/* END OF PART 2
-   PART 3 WILL COMPLETE THE DESIGN.
+    font-family: var(--letter);
+
+    font-size: 24px;
+
+    font-style: italic;
+
+    color: var(--muted);
+}
+
+/* JUNJUN SIGNATURE */
+
+.junjun-signature {
+    font-family: var(--hand) !important;
+
+    font-size: clamp(38px, 7vw, 60px) !important;
+
+    color: var(--rose-dark) !important;
+
+    line-height: 1.3 !important;
+}
+
+.end-note {
+    margin-top: 25px !important;
+
+    font-family: var(--hand) !important;
+
+    font-size: 25px !important;
+
+    color: var(--rose-dark) !important;
+}
+
+/* HIDDEN CLASS */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   FILM CREDIT DETAILS
+========================================= */
+
+.final-message .final-decoration {
+    animation: celebrationFloat 4s ease-in-out infinite;
+}
+
+.final-message .junjun-signature {
+    animation: signatureReveal 2s var(--ease) both;
+}
+
+@keyframes signatureReveal {
+    from {
+        opacity: 0;
+        letter-spacing: 5px;
+    }
+
+    to {
+        opacity: 1;
+        letter-spacing: 0;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN — TABLETS
+========================================= */
+
+@media (max-width: 768px) {
+
+    .page {
+        padding: 90px 18px 45px;
+    }
+
+    .glass-card,
+    .delivery-card {
+        padding: 55px 25px;
+    }
+
+    .letter-container {
+        padding: 45px 28px;
+    }
+
+    .delivery-scene {
+        height: 240px;
+    }
+
+    .memory-container {
+        padding-top: 30px;
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN — MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .page {
+        padding: 85px 14px 40px;
+        min-height: 100svh;
+    }
+
+    .music-button {
+        top: 12px;
+        right: 12px;
+
+        padding: 10px 13px;
+
+        font-size: 8px;
+    }
+
+    .glass-card,
+    .delivery-card {
+        padding: 48px 22px;
+    }
+
+    h1 {
+        letter-spacing: -1px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+    }
+
+    .main-button {
+        padding: 14px 22px;
+
+        font-size: 8px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .delivery-scene {
+        height: 220px;
+    }
+
+    .envelope {
+        transform: scale(.88);
+    }
+
+    .envelope:hover {
+        transform: scale(.88) translateY(-5px);
+    }
+
+    .letter-container {
+        padding: 45px 24px;
+    }
+
+    .letter-content {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    .answer-buttons {
+        gap: 10px;
+    }
+
+    .yes-button,
+    .notyet-button {
+        min-width: 125px;
+        padding: 13px 18px;
+
+        font-size: 9px;
+    }
+
+    .celebration-card {
+        padding: 60px 20px;
+    }
+
+    .polaroid {
+        width: min(100%, 340px);
+        padding: 11px 11px 23px;
+    }
+
+    .polaroid img {
+        height: 340px;
+    }
+
+    .polaroid p {
+        font-size: 23px;
+    }
+
+    .back-memory-button {
+        padding: 13px 18px;
+        font-size: 8px;
+    }
+
+    .final-message {
+        padding: 55px 22px;
+    }
+
+}
+
+
+/* =========================================
+   REDUCE MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+
+}
+
+
+/* =========================================
+   END OF JUNJUN'S LOVE LETTER CSS
 ========================================= */
