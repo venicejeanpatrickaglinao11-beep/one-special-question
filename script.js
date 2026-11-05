@@ -1,18 +1,25 @@
 
-// ======================================
-// JUNJUN'S LITTLE FAIRYTALE
-// ======================================
+/* =====================================================
+   A FILM CALLED US
+   JUNJUN × PRETTY
+   COMPLETE INTERACTIVE SCRIPT
+===================================================== */
 
 
-// PAGE NAVIGATION
+/* 01. PAGE NAVIGATION */
 
 function goToPage(number) {
 
-    document.querySelectorAll(".page").forEach(page => {
+    const pages = document.querySelectorAll(".page");
+
+    const selectedPage =
+        document.getElementById("page" + number);
+
+    if (!selectedPage) return;
+
+    pages.forEach(page => {
         page.classList.remove("active");
     });
-
-    const selectedPage = document.getElementById("page" + number);
 
     selectedPage.classList.add("active");
 
@@ -24,43 +31,50 @@ function goToPage(number) {
 }
 
 
-// ======================================
-// BACKGROUND PHOTO SLIDESHOW
-// ======================================
+/* 02. BACKGROUND PHOTO SLIDESHOW */
 
 const backgrounds = document.querySelectorAll(".bg");
 
 let backgroundIndex = 0;
 
-setInterval(() => {
+if (backgrounds.length > 1) {
 
-    backgrounds[backgroundIndex].classList.remove("active");
+    setInterval(() => {
 
-    backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+        backgrounds[backgroundIndex].classList.remove("active");
 
-    backgrounds[backgroundIndex].classList.add("active");
+        backgroundIndex =
+            (backgroundIndex + 1) % backgrounds.length;
 
-}, 5000);
+        backgrounds[backgroundIndex].classList.add("active");
+
+    }, 6500);
+
+}
 
 
-// ======================================
-// MUSIC PLAYER
-// ======================================
+/* 03. MUSIC PLAYER */
 
 const music = document.getElementById("backgroundMusic");
+
 const musicButton = document.getElementById("musicButton");
 
-let musicPlaying = false;
+function updateMusicButton() {
+
+    if (!music || !musicButton) return;
+
+    musicButton.textContent =
+        music.paused ? "♫ Music Off" : "♫ Music On";
+
+}
 
 async function toggleMusic() {
 
-    if (musicPlaying) {
+    if (!music) return;
+
+    if (!music.paused) {
 
         music.pause();
-
-        musicPlaying = false;
-
-        musicButton.innerHTML = "♫ Music Off";
 
     } else {
 
@@ -68,51 +82,44 @@ async function toggleMusic() {
 
             await music.play();
 
-            musicPlaying = true;
-
-            musicButton.innerHTML = "♫ Music On";
-
         } catch (error) {
 
-            musicButton.innerHTML = "Tap to Play ♫";
+            musicButton.textContent = "Tap to Play ♫";
 
-            console.log("Music could not play:", error);
+            console.error("Music playback failed:", error);
 
         }
 
     }
 
+    updateMusicButton();
+
 }
-
-
-// Try to start music after the first entrance interaction.
 
 async function startMusic() {
 
-    if (!musicPlaying) {
+    if (!music || !music.paused) return;
 
-        try {
+    try {
 
-            await music.play();
+        await music.play();
 
-            musicPlaying = true;
+    } catch (error) {
 
-            musicButton.innerHTML = "♫ Music On";
-
-        } catch (error) {
-
-            musicButton.innerHTML = "♫ Music Off";
-
-        }
+        console.log("Waiting for music permission.");
 
     }
 
+    updateMusicButton();
+
 }
 
+music.addEventListener("play", updateMusicButton);
 
-// ======================================
-// ENTRANCE
-// ======================================
+music.addEventListener("pause", updateMusicButton);
+
+
+/* 04. ENTRANCE */
 
 function enterFairytale() {
 
@@ -120,7 +127,8 @@ function enterFairytale() {
 
     goToPage(2);
 
-    const butterfly = document.getElementById("deliveryButterfly");
+    const butterfly =
+        document.getElementById("deliveryButterfly");
 
     butterfly.classList.remove("fly-in");
 
@@ -133,9 +141,7 @@ function enterFairytale() {
 }
 
 
-// ======================================
-// ENVELOPE ANIMATION
-// ======================================
+/* 05. ENVELOPE OPENING */
 
 let envelopeOpened = false;
 
@@ -145,17 +151,17 @@ function openEnvelope() {
 
     envelopeOpened = true;
 
-    const envelope = document.getElementById("envelope");
+    const envelope =
+        document.getElementById("envelope");
 
-    const button = document.getElementById("openButton");
+    const button =
+        document.getElementById("openButton");
 
     envelope.classList.add("open");
 
     button.disabled = true;
 
-    button.innerHTML = "Opening your letter... ♡";
-
-    // Butterflies escape from the envelope.
+    button.textContent = "Opening your letter...";
 
     setTimeout(() => {
 
@@ -163,64 +169,77 @@ function openEnvelope() {
 
     }, 650);
 
-    // Show the letter after the animation.
-
     setTimeout(() => {
 
         goToPage(3);
 
-        createParticles(18);
+        createParticles(20);
 
-    }, 2000);
+    }, 2200);
 
 }
 
 
-// ======================================
-// BUTTERFLIES ESCAPING
-// ======================================
+/* 06. BUTTERFLY ESCAPE */
 
 function butterflyEscape() {
 
-    const container = document.getElementById("particleContainer");
+    const container =
+        document.getElementById("particleContainer");
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 14; i++) {
 
-        const butterfly = document.createElement("div");
+        const butterfly =
+            document.createElement("div");
 
-        butterfly.innerHTML = "🦋";
+        butterfly.textContent = "🦋";
 
         butterfly.className = "particle";
 
-        butterfly.style.left = "45%";
+        butterfly.style.position = "fixed";
 
-        butterfly.style.bottom = "35%";
+        butterfly.style.left = "50%";
+        butterfly.style.top = "48%";
+        butterfly.style.bottom = "auto";
 
-        butterfly.style.fontSize = (18 + Math.random() * 22) + "px";
+        butterfly.style.fontSize =
+            (17 + Math.random() * 20) + "px";
 
         container.appendChild(butterfly);
 
-        const x = (Math.random() - 0.5) * window.innerWidth;
+        const x =
+            (Math.random() - 0.5) *
+            window.innerWidth * 1.3;
 
-        const y = -(150 + Math.random() * 450);
+        const y =
+            -(150 + Math.random() * window.innerHeight * .8);
 
         const animation = butterfly.animate([
 
             {
-                transform: "translate(0, 0) rotate(0deg)",
-                opacity: 1
+                transform:
+                    "translate(-50%, 0) rotate(0deg) scale(.5)",
+                opacity: 0
             },
 
             {
-                transform: `translate(${x}px, ${y}px) rotate(360deg)`,
+                transform:
+                    "translate(-50%, -30px) rotate(20deg) scale(1)",
+                opacity: 1,
+                offset: .2
+            },
+
+            {
+                transform:
+                    `translate(${x}px, ${y}px) rotate(360deg) scale(.8)`,
                 opacity: 0
             }
 
         ], {
 
-            duration: 2000 + Math.random() * 1800,
+            duration: 2400 + Math.random() * 1200,
 
-            easing: "ease-out"
+            easing: "cubic-bezier(.2,.7,.3,1)"
 
         });
 
@@ -231,66 +250,76 @@ function butterflyEscape() {
 }
 
 
-// ======================================
-// NOT YET BUTTON
-// ======================================
+/* 07. NOT YET */
 
 function sayNotYet() {
 
-    document.getElementById("answerMessage").innerText =
-        "No pressure, Pretty. Take all the time you need. Your happiness matters to me. ♡";
+    const message =
+        document.getElementById("answerMessage");
 
-    createParticles(8);
+    message.textContent =
+        "That's okay, Pretty. Take all the time you need. I want you to be comfortable and happy. ♡";
+
+    createParticles(6);
 
 }
 
 
-// ======================================
-// YES BUTTON
-// ======================================
+/* 08. YES CELEBRATION */
 
 function sayYes() {
 
     goToPage(4);
 
-    createParticles(55);
+    createParticles(60);
 
     setTimeout(() => {
+        createParticles(35);
+    }, 1300);
 
-        createParticles(25);
-
-    }, 1200);
+    setTimeout(() => {
+        createParticles(20);
+    }, 2500);
 
 }
 
 
-// ======================================
-// FLOATING HEARTS AND FLOWERS
-// ======================================
+/* 09. PARTICLE SYSTEM */
 
 function createParticles(amount) {
 
-    const container = document.getElementById("particleContainer");
+    const container =
+        document.getElementById("particleContainer");
 
-    const symbols = ["💗", "♡", "🦋", "🌸", "✨"];
+    const symbols = [
+        "♡",
+        "♥",
+        "🦋",
+        "✧",
+        "🌸"
+    ];
 
     for (let i = 0; i < amount; i++) {
 
-        const particle = document.createElement("div");
+        const particle =
+            document.createElement("div");
 
         particle.className = "particle";
 
-        particle.innerHTML =
+        particle.textContent =
             symbols[Math.floor(Math.random() * symbols.length)];
 
-        particle.style.left = Math.random() * 100 + "vw";
+        particle.style.left =
+            Math.random() * 100 + "vw";
 
         particle.style.fontSize =
-            (15 + Math.random() * 25) + "px";
+            (13 + Math.random() * 22) + "px";
 
-        const duration = 3500 + Math.random() * 4000;
+        const duration =
+            3500 + Math.random() * 4000;
 
-        particle.style.animationDuration = duration + "ms";
+        particle.style.animationDuration =
+            duration + "ms";
 
         container.appendChild(particle);
 
@@ -305,40 +334,44 @@ function createParticles(amount) {
 }
 
 
-// ======================================
-// MEMORY SLIDESHOW
-// ======================================
+/* 10. MEMORY GALLERY */
 
 const memories = [
 
     {
         image: "images/us1.jpg",
-        caption: "The beginning of something beautiful. ♡"
+        caption: "The beginning of something beautiful. ♡",
+        date: "A DAY TO REMEMBER"
     },
 
     {
         image: "images/us2.jpg",
-        caption: "One of my favorite moments with you."
+        caption: "One of my favorite moments with you.",
+        date: "A LITTLE MEMORY"
     },
 
     {
         image: "images/us3.jpg",
-        caption: "You make ordinary days extraordinary."
+        caption: "You make ordinary days extraordinary.",
+        date: "A BEAUTIFUL MOMENT"
     },
 
     {
         image: "images/us4.jpg",
-        caption: "A memory I wish I could relive."
+        caption: "A memory I wish I could relive.",
+        date: "SOMETHING SPECIAL"
     },
 
     {
         image: "images/us5.jpg",
-        caption: "And somehow, there's always more to love."
+        caption: "And somehow, there's always more to love.",
+        date: "MY FAVORITE PERSON"
     },
 
     {
         image: "images/us6.jpg",
-        caption: "My favorite person, in my favorite memories. ♡"
+        caption: "My favorite person, in my favorite memories. ♡",
+        date: "TO BE CONTINUED..."
     }
 
 ];
@@ -346,7 +379,7 @@ const memories = [
 let memoryIndex = 0;
 
 
-// Preload the memory photos.
+/* PRELOAD PHOTOGRAPHS */
 
 memories.forEach(memory => {
 
@@ -357,46 +390,85 @@ memories.forEach(memory => {
 });
 
 
+/* START MEMORIES */
+
 function startMemories() {
 
     goToPage(5);
 
     memoryIndex = 0;
 
+    document.querySelector(".film-frame").style.display = "";
+
+    document.getElementById("memoryCounter").style.display = "";
+
+    document.getElementById("nextMemoryButton").style.display = "";
+
+    document.getElementById("finalMessage").classList.add("hidden");
+
     updateMemory();
 
-    createParticles(20);
+    createParticles(18);
 
 }
 
+
+/* UPDATE PHOTO */
 
 function updateMemory() {
 
-    const image = document.getElementById("memoryImage");
+    const image =
+        document.getElementById("memoryImage");
 
-    const caption = document.getElementById("memoryCaption");
+    const caption =
+        document.getElementById("memoryCaption");
 
-    const counter = document.getElementById("memoryCounter");
+    const counter =
+        document.getElementById("memoryCounter");
 
-    // Restart the photo animation.
+    const date =
+        document.getElementById("photoDate");
 
-    image.style.animation = "none";
+    const nextButton =
+        document.getElementById("nextMemoryButton");
 
-    void image.offsetWidth;
+    image.style.opacity = "0";
 
-    image.style.animation = "photoEnter .8s ease";
+    setTimeout(() => {
 
-    image.src = memories[memoryIndex].image;
+        image.src = memories[memoryIndex].image;
 
-    caption.innerText = memories[memoryIndex].caption;
+        caption.textContent =
+            memories[memoryIndex].caption;
 
-    counter.innerText =
-        String(memoryIndex + 1).padStart(2, "0") +
-        " / " +
-        String(memories.length).padStart(2, "0");
+        date.textContent =
+            memories[memoryIndex].date;
+
+        counter.textContent =
+            String(memoryIndex + 1).padStart(2, "0") +
+            " / " +
+            String(memories.length).padStart(2, "0");
+
+        image.style.animation = "none";
+
+        void image.offsetWidth;
+
+        image.style.animation =
+            "photoEnter .9s ease forwards";
+
+        image.style.opacity = "1";
+
+    }, 250);
+
+    nextButton.textContent =
+        memoryIndex === memories.length - 1
+            ? "Our Final Chapter ♡"
+            : "Next Memory →";
 
 }
 
+
+/* NEXT PHOTO */
 
 function nextMemory() {
 
@@ -417,21 +489,46 @@ function nextMemory() {
 }
 
 
-// ======================================
-// FINAL MESSAGE
-// ======================================
+/* 11. FINAL CREDITS */
 
 function showFinalMessage() {
 
-    document.getElementById("finalMessage")
-        .classList.remove("hidden");
+    const finalMessage =
+        document.getElementById("finalMessage");
 
-    document.querySelector(".polaroid").style.display = "none";
+    const filmFrame =
+        document.querySelector(".film-frame");
 
-    document.getElementById("memoryCounter").style.display = "none";
+    const counter =
+        document.getElementById("memoryCounter");
 
-    document.getElementById("nextMemoryButton").style.display = "none";
+    const nextButton =
+        document.getElementById("nextMemoryButton");
 
-    createParticles(40);
+    finalMessage.classList.remove("hidden");
+
+    filmFrame.style.display = "none";
+
+    counter.style.display = "none";
+
+    nextButton.style.display = "none";
+
+    createParticles(45);
 
 }
+
+
+/* 12. IMAGE ERROR CHECK */
+
+document.querySelectorAll(".bg").forEach(img => {
+
+    img.addEventListener("error", () => {
+
+        console.warn(
+            "Background image not found:",
+            img.src
+        );
+
+    });
+
+});
