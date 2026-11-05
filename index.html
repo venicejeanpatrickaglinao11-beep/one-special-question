@@ -4,366 +4,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f8f3eb">
+    <meta name="theme-color" content="#f9dce9">
 
-    <title>A Film Called Us | For Pretty ♡</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600&family=Italianno&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <title>For Pretty ♡</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Dancing+Script:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- BACKGROUND PHOTOGRAPHS -->
+    <!-- BACKGROUND PHOTOS -->
 
-<div class="background">
-    <img src="images/us1.jpg" class="bg active" alt="">
-    <img src="images/us2.jpg" class="bg" alt="">
-    <img src="images/us3.jpg" class="bg" alt="">
-    <img src="images/us4.jpg" class="bg" alt="">
-    <img src="images/us5.jpg" class="bg" alt="">
-    <img src="images/us6.jpg" class="bg" alt="">
-</div>
-
-<div class="pink-overlay"></div>
-
-<!-- FILM GRAIN -->
-<div class="film-grain"></div>
-
-<!-- MUSIC -->
-
-<audio id="backgroundMusic" loop>
-    <source src="music/our-song.mp3" type="audio/mpeg">
-</audio>
-
-<button class="music-button" id="musicButton" onclick="toggleMusic()">
-    ♫ Music Off
-</button>
-
-
-<!-- FILM RECORDING INDICATOR -->
-
-<div class="recording-indicator">
-    <span class="rec-dot"></span>
-    <span>REC</span>
-</div>
-
-
-<!-- PAGE 1: INTRODUCTION -->
-
-<section id="page1" class="page active">
-
-    <div class="film-label">A FILM BY JUNJUN</div>
-
-    <div class="glass-card entrance-card">
-
-        <p class="eyebrow">A LITTLE STORY ABOUT US</p>
-
-        <div class="flower-decoration">✳ ✧ ✳</div>
-
-        <h1>Hey, Pretty <span>♡</span></h1>
-
-        <p class="subtitle">
-            Somewhere between all the little moments,
-            you became someone special to me.
-        </p>
-
-        <p class="small-note">
-            I made a little something for you...
-        </p>
-
-        <button class="main-button" onclick="enterFairytale()">
-            Enter Our Little World →
-        </button>
-
+    <div class="background">
+        <img src="images/us1.jpg" class="bg active" alt="">
+        <img src="images/us2.jpg" class="bg" alt="">
+        <img src="images/us3.jpg" class="bg" alt="">
+        <img src="images/us4.jpg" class="bg" alt="">
+        <img src="images/us5.jpg" class="bg" alt="">
+        <img src="images/us6.jpg" class="bg" alt="">
     </div>
 
-    <div class="bottom-note">
-        SHOT WITH LOVE · EST. 2026
-    </div>
+    <div class="pink-overlay"></div>
 
-</section>
+    <div class="film-grain"></div>
+
+    <!-- MUSIC -->
+
+    <audio id="backgroundMusic" loop>
+        <source src="music/our-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-button" id="musicButton" onclick="toggleMusic()">
+        ♫ Music Off
+    </button>
 
 
-<!-- PAGE 2: BUTTERFLY DELIVERY -->
+    <!-- PAGE 1: ENTRANCE -->
 
-<section id="page2" class="page">
+    <section id="page1" class="page active">
 
-    <div class="delivery-card">
+        <div class="glass-card entrance-card">
 
-        <p class="eyebrow">CHAPTER 01 · A SPECIAL DELIVERY</p>
+            <p class="eyebrow">A LITTLE FAIRYTALE FOR YOU</p>
 
-        <h1>A Little Letter For You</h1>
+            <h1>Hey, Pretty <span>♡</span></h1>
 
-        <p class="subtitle">
-            A little butterfly has traveled a long way
-            just to bring you something special.
-        </p>
+            <p class="subtitle">
+                Somewhere between all the little moments,
+                you became someone special to me.
+            </p>
 
-        <div class="delivery-scene">
-
-            <div class="delivery-butterfly" id="deliveryButterfly">
-                🦋
+            <div class="flower-decoration">
+                🌷 ✧ 🦋 ✧ 🌷
             </div>
 
-            <div class="envelope" id="envelope">
-
-                <div class="env-back"></div>
-
-                <div class="letter-inside">
-                    <span>For Pretty ♡</span>
-                </div>
-
-                <div class="env-left"></div>
-                <div class="env-right"></div>
-                <div class="env-bottom"></div>
-
-                <div class="env-flap"></div>
-
-                <div class="wax-seal">♡</div>
-
-            </div>
-
-        </div>
-
-        <p class="small-note">
-            Something written straight from my heart.
-        </p>
-
-        <button class="main-button" id="openButton" onclick="openEnvelope()">
-            Open Your Letter ♡
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- PAGE 3: LOVE LETTER -->
-
-<section id="page3" class="page">
-
-    <div class="letter-container">
-
-        <div class="letter-decoration">✳</div>
-
-        <p class="letter-date">
-            A LITTLE NOTE FROM MY HEART
-        </p>
-
-        <h1>Dear Pretty,</h1>
-
-        <div class="letter-content">
-
-            <p>Hi, Pretty!</p>
-
-            <p>
-                I don't really know where to start,
-                but I just want you to know how
-                genuinely happy I am that I got
-                the chance to know you.
+            <p class="small-note">
+                I made a little something for you...
             </p>
 
-            <p>
-                Every conversation, every laugh,
-                and every little moment we share
-                means more to me than you probably know.
-            </p>
-
-            <p>
-                I may not be perfect, and I can't
-                promise that every day will be a fairytale,
-                but I can promise that I'll do my best
-                to make you feel appreciated, respected,
-                and loved.
-            </p>
-
-            <p>
-                I want to get to know you even more,
-                make memories with you, and experience
-                all the little adventures life has waiting
-                for us.
-            </p>
-
-            <p>
-                So, there's something I've been wanting
-                to ask you...
-            </p>
-
-            <p class="signature">
-                With all my sincerity,<br>
-                Junjun ♡
-            </p>
-
-        </div>
-
-        <div class="question-divider">✧ · · ♡ · · ✧</div>
-
-        <h2>Will You Be My Girlfriend?</h2>
-
-        <p class="question-subtitle">
-            It would make me really happy. ♡
-        </p>
-
-        <div class="answer-buttons">
-
-            <button class="yes-button" onclick="sayYes()">
-                YES! ♡
-            </button>
-
-            <button class="notyet-button" onclick="sayNotYet()">
-                Not yet...
+            <button class="main-button" onclick="enterFairytale()">
+                Enter Our Little World ♡
             </button>
 
         </div>
 
-        <p id="answerMessage"></p>
-
-    </div>
-
-</section>
-
-
-<!-- PAGE 4: CELEBRATION -->
-
-<section id="page4" class="page">
-
-    <div class="glass-card celebration-card">
-
-        <div class="celebration-icons">
-            💗 🦋 💗
+        <div class="bottom-note">
+            made with love by junjun
         </div>
 
-        <p class="eyebrow">
-            CHAPTER 02 · A NEW BEGINNING
-        </p>
-
-        <h1>She Said YES!</h1>
-
-        <p class="subtitle">
-            You have no idea how happy you just made me.
-        </p>
-
-        <h2>Here's to us, Pretty. ♡</h2>
-
-        <p class="small-note">
-            This is just the beginning of our story.
-        </p>
-
-        <button class="main-button" onclick="startMemories()">
-            Relive Our Memories →
-        </button>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- PAGE 5: MEMORY FILM -->
+    <!-- PAGE 2: BUTTERFLY DELIVERY -->
 
-<section id="page5" class="page">
+    <section id="page2" class="page">
 
-    <div class="memory-container">
+        <div class="delivery-card">
 
-        <p class="eyebrow">
-            CHAPTER 03 · LITTLE MOMENTS, BIG MEMORIES
-        </p>
+            <p class="eyebrow">A SPECIAL DELIVERY</p>
 
-        <h1>Our Story ♡</h1>
+            <h1>A Little Letter For You</h1>
 
-        <div class="film-frame">
+            <p class="subtitle">
+                I believe this little butterfly has
+                something to give you...
+            </p>
 
-            <div class="film-top">
-                <span>JUNJUN × PRETTY</span>
-                <span>35MM</span>
-            </div>
+            <div class="delivery-scene">
 
-            <div class="polaroid">
-
-                <img
-                    id="memoryImage"
-                    src="images/us1.jpg"
-                    alt="Our memory"
-                >
-
-                <div class="photo-date" id="photoDate">
-                    A MOMENT TO REMEMBER
+                <div class="delivery-butterfly" id="deliveryButterfly">
+                    🦋
                 </div>
 
-                <p id="memoryCaption">
-                    Every moment with you is special. ♡
+                <div class="envelope" id="envelope">
+
+                    <div class="env-back"></div>
+
+                    <div class="letter-inside">
+                        <span>♡</span>
+                    </div>
+
+                    <div class="env-left"></div>
+                    <div class="env-right"></div>
+                    <div class="env-bottom"></div>
+
+                    <div class="env-flap"></div>
+
+                </div>
+
+            </div>
+
+            <p class="small-note">
+                A letter written especially for you.
+            </p>
+
+            <button class="main-button" id="openButton" onclick="openEnvelope()">
+                Open Your Letter ♡
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 3: LOVE LETTER -->
+
+    <section id="page3" class="page">
+
+        <div class="letter-container">
+
+            <div class="letter-decoration">🌸 ✧ 🦋 ✧ 🌸</div>
+
+            <p class="letter-date">A LITTLE NOTE FROM MY HEART</p>
+
+            <h1>Dear Pretty,</h1>
+
+            <div class="letter-content">
+
+                <p>Hi, Pretty!</p>
+
+                <p>
+                    I don't really know where to start,
+                    but I just want you to know how
+                    genuinely happy I am that I got
+                    the chance to know you.
+                </p>
+
+                <p>
+                    Every conversation, every laugh,
+                    and every little moment we share
+                    means more to me than you probably know.
+                </p>
+
+                <p>
+                    I may not be perfect, and I can't
+                    promise that every day will be a fairytale,
+                    but I can promise that I'll do my best
+                    to make you feel appreciated, respected,
+                    and loved.
+                </p>
+
+                <p>
+                    I want to get to know you even more,
+                    make memories with you, and experience
+                    all the little adventures life has waiting
+                    for us.
+                </p>
+
+                <p>
+                    So, there's something I've been wanting
+                    to ask you...
+                </p>
+
+                <p class="signature">
+                    With all my sincerity,<br>
+                    Junjun ♡
                 </p>
 
             </div>
 
-            <div class="film-bottom">
-                <span>MADE WITH LOVE</span>
-                <span>♥ 001</span>
+            <div class="question-divider">✧ · · ♡ · · ✧</div>
+
+            <h2>Will You Be My Girlfriend?</h2>
+
+            <p class="question-subtitle">
+                It would make me really happy. ♡
+            </p>
+
+            <div class="answer-buttons">
+
+                <button class="yes-button" onclick="sayYes()">
+                    YES! ♡
+                </button>
+
+                <button class="notyet-button" onclick="sayNotYet()">
+                    Not yet...
+                </button>
+
+            </div>
+
+            <p id="answerMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 4: CELEBRATION -->
+
+    <section id="page4" class="page">
+
+        <div class="glass-card celebration-card">
+
+            <div class="celebration-icons">💗 🦋 💗</div>
+
+            <p class="eyebrow">
+                THE BEGINNING OF OUR NEXT CHAPTER
+            </p>
+
+            <h1>She Said YES!</h1>
+
+            <p class="subtitle">
+                You have no idea how happy you just made me.
+            </p>
+
+            <h2>Here's to us, Pretty. ♡</h2>
+
+            <button class="main-button" onclick="startMemories()">
+                Relive Our Little Memories →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 5: OUR MEMORIES -->
+
+    <section id="page5" class="page">
+
+        <div class="memory-container">
+
+            <p class="eyebrow">
+                LITTLE MOMENTS, BIG MEMORIES
+            </p>
+
+            <h1>Our Story ♡</h1>
+
+            <div class="polaroid">
+
+                <img id="memoryImage" src="images/us1.jpg" alt="Our memory">
+
+                <p id="memoryCaption">
+                    Every moment with you is special.
+                </p>
+
+            </div>
+
+            <div class="memory-counter" id="memoryCounter">
+                01 / 06
+            </div>
+
+            <div class="memory-navigation">
+
+                <button class="memory-back-button" id="prevMemoryButton" onclick="previousMemory()">
+                    ← Previous
+                </button>
+
+                <button class="main-button" id="nextMemoryButton" onclick="nextMemory()">
+                    Next Memory →
+                </button>
+
             </div>
 
         </div>
 
-        <div class="memory-counter" id="memoryCounter">
-            01 / 06
-        </div>
+    </section>
 
-        <button class="main-button" id="nextMemoryButton" onclick="nextMemory()">
-            Next Memory →
-        </button>
 
-        <!-- FINAL CREDITS -->
+    <!-- PAGE 6: A NEW CHAPTER -->
 
-        <div id="finalMessage" class="final-message hidden">
+    <section id="page6" class="page">
 
-            <div class="final-decoration">🦋 ♡ 🌷</div>
+        <div class="ending-container">
 
-            <p class="eyebrow">THE END OF THIS FILM...</p>
+            <p class="eyebrow">
+                AND SO, OUR STORY CONTINUES...
+            </p>
 
-            <h1>Our Story Is Just Beginning.</h1>
+            <div class="ending-decoration">
+                ✧ ─── ♡ ─── ✧
+            </div>
 
-            <p>
+            <h1>
+                A Beginning<br>
+                of a New Chapter.
+            </h1>
+
+            <p class="ending-subtitle">
                 Are you ready to make a million
                 more beautiful memories together?
             </p>
 
-            <div class="credits-divider">✧ ─── ♡ ─── ✧</div>
+            <div class="ending-divider">
+                ✧ ─── ♡ ─── ✧
+            </div>
 
-            <p class="credits-label">STARRING</p>
+            <p class="film-credit">STARRING</p>
 
             <h2>Pretty & Junjun</h2>
 
-            <p class="credits-label">DIRECTED WITH LOVE BY</p>
+            <p class="film-credit">DIRECTED WITH LOVE BY</p>
 
-            <h2 class="junjun-signature">
+            <h3 class="ending-signature">
                 Your Future Boyfriend,<br>
                 Junjun ♡
-            </h2>
+            </h3>
 
-            <p class="end-note">
+            <p class="ending-note">
                 and hopefully, your forever person.
             </p>
 
-            <div class="final-decoration">THE END? ♡</div>
+            <div class="the-end">
+                THE END? ♡
+            </div>
+
+            <p class="ending-footer">
+                OUR FAVORITE STORY IS ONLY BEGINNING.
+            </p>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- PARTICLES -->
+    <!-- PARTICLES -->
 
-<div id="particleContainer"></div>
+    <div id="particleContainer"></div>
 
 
-<!-- JAVASCRIPT -->
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
