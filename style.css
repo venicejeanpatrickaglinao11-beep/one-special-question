@@ -1401,9 +1401,10 @@ h2 {
 
 }
 
-/* =====================================
-   MATCHING MEMORY NAVIGATION BUTTONS
-===================================== */
+
+/* =========================================
+   MEMORY NAVIGATION — FINAL FIX
+========================================= */
 
 .memory-navigation {
     display: flex;
@@ -1411,19 +1412,20 @@ h2 {
     align-items: center;
     flex-wrap: wrap;
     gap: 14px;
-    margin-top: 20px;
+    margin: 25px auto;
 }
 
 .memory-navigation .back-memory-button,
 .memory-navigation .main-button {
-    min-width: 175px;
-    min-height: 48px;
-    margin: 0;
-    padding: 15px 25px;
-
     display: inline-flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
+    width: 185px;
+    min-height: 48px;
+
+    margin: 0;
+    padding: 14px 20px;
 
     background: var(--wine);
     color: var(--cream);
@@ -1434,6 +1436,7 @@ h2 {
     font-family: var(--body);
     font-size: 9px;
     font-weight: 500;
+
     letter-spacing: 2px;
     text-transform: uppercase;
 
@@ -1457,55 +1460,13 @@ h2 {
 
 @media (max-width: 480px) {
     .memory-navigation {
-        gap: 10px;
+        flex-direction: column;
+        gap: 12px;
     }
 
     .memory-navigation button {
         width: 100%;
         max-width: 250px;
     }
-
 }
 
-/* FORCE PREVIOUS BUTTON TO MATCH NEXT BUTTON */
-
-.memory-navigation .back-memory-button {
-    display: inline-flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-
-    min-width: 175px !important;
-    min-height: 48px !important;
-
-    margin: 10px 0 !important;
-    padding: 15px 25px !important;
-
-    background: var(--wine) !important;
-    color: var(--cream) !important;
-
-    border: 1px solid var(--wine) !important;
-    border-radius: 2px !important;
-
-    font-family: var(--body) !important;
-    font-size: 9px !important;
-    font-weight: 500 !important;
-
-    letter-spacing: 2px !important;
-    text-transform: uppercase !important;
-
-    box-shadow: 0 8px 22px rgba(74,47,51,.15) !important;
-
-    transition: all .35s var(--ease) !important;
-}
-
-.memory-navigation .back-memory-button:hover {
-    background: transparent !important;
-    color: var(--wine) !important;
-    transform: translateY(-3px) !important;
-}
-
-
-
-/* =========================================
-   END OF JUNJUN'S LOVE LETTER CSS
-========================================= */
