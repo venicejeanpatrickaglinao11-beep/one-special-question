@@ -402,99 +402,46 @@ h2 {
 
 /* BUTTERFLY DELIVERY SCENE */
 
+
+/* =========================================
+   FIXED ENVELOPE ANIMATION
+========================================= */
+
 .delivery-scene {
     position: relative;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
-    height: 275px;
-    margin: 20px 0;
-
+    height: 300px;
+    margin: 25px 0;
     perspective: 1000px;
 }
 
-.delivery-butterfly {
-    position: absolute;
-    top: 0;
-    left: -30px;
-    z-index: 10;
-
-    font-size: 45px;
-    opacity: 0;
-
-    filter: drop-shadow(0 5px 8px rgba(104,69,78,.2));
-}
-
-.delivery-butterfly.fly-in {
-    animation: butterflyDelivery 3.5s var(--ease) forwards;
-}
-
-@keyframes butterflyDelivery {
-    0% {
-        left: -30px;
-        top: 0;
-        opacity: 0;
-        transform: rotate(-20deg) scale(.7);
-    }
-
-    30% {
-        opacity: 1;
-        top: 55px;
-        transform: rotate(15deg);
-    }
-
-    75% {
-        left: 55%;
-        top: 95px;
-        transform: rotate(-10deg);
-    }
-
-    100% {
-        left: 48%;
-        top: 80px;
-        opacity: 1;
-        transform: rotate(0);
-    }
-}
-
-
-/* ENVELOPE DESIGN */
-
 .envelope {
     position: relative;
-
     width: 245px;
     height: 165px;
-
     transform-style: preserve-3d;
-
     filter: drop-shadow(0 16px 15px rgba(79,47,55,.17));
 }
+
+/* BACK */
 
 .env-back {
     position: absolute;
     inset: 0;
-
-    background: linear-gradient(
-        145deg,
-        #e6c8bf,
-        #c99191
-    );
-
-    border: 1px solid rgba(128,80,77,.15);
+    z-index: 1;
+    background: linear-gradient(145deg, #e6c8bf, #c99191);
 }
 
-
-/* LETTER INSIDE ENVELOPE */
+/* LETTER INSIDE */
 
 .letter-inside {
     position: absolute;
+    z-index: 2;
 
-    z-index: 1;
-    top: 5%;
     left: 8%;
+    top: 5%;
 
     width: 84%;
     height: 90%;
@@ -508,9 +455,9 @@ h2 {
     font-family: var(--hand);
     font-size: 35px;
 
-    transition: transform 1.2s var(--ease) .25s;
+    transition:
+        transform 1.2s cubic-bezier(.22, 1, .36, 1) .25s;
 }
-
 
 /* ENVELOPE SIDES */
 
@@ -560,8 +507,7 @@ h2 {
     );
 }
 
-
-/* ENVELOPE FLAP */
+/* FRONT FLAP */
 
 .env-flap {
     position: absolute;
@@ -582,14 +528,19 @@ h2 {
 
     transform-origin: top center;
 
-    transition: transform 1s var(--ease);
+    transition: transform 1s ease;
 }
+
+/* OPEN ENVELOPE */
 
 .envelope.open .env-flap {
     transform: rotateX(180deg);
 }
 
+/* LETTER COMES OUT */
+
 .envelope.open .letter-inside {
+    z-index: 6;
     transform: translateY(-120px);
 }
 
